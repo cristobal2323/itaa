@@ -1,0 +1,343 @@
+@import "./normalize";
+@import "./fontawesome";
+@import "./variables";
+@import "./utility";
+
+$green_login: #3aafa1;
+$gris_login: #f4f8f7;
+$gris_dark_login: #9ba7a3;
+
+.container-login {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  background: $gris_dark;
+  padding: 1em;
+  width: 100%;
+  .error {
+    padding: 0;
+    margin: 0 0 1em 0;
+    font-size: 12px;
+    color: $red;
+  }
+  .success {
+    padding: 0;
+    margin: 0 0 1em 0;
+    font-size: 12px;
+    color: $green;
+  }
+  .module-login {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    margin: auto;
+    width: 80%;
+    max-width: 1200px;
+    width: 100%;
+    height: 80%;
+    background: #fff;
+    position: relative;
+    .logo {
+      width: 100px;
+      border-radius: 10px;
+      top: 10px;
+      left: 10px;
+      z-index: 3;
+      position: absolute;
+    }
+    .background {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: $green_login;
+      overflow: hidden;
+      width: 35%;
+      left: 65%;
+      height: 100%;
+      &.slide {
+        -webkit-animation: slide 1s forwards;
+        -webkit-animation-delay: 0.2s;
+        animation: slide 1s forwards;
+        animation-delay: 0.2s;
+      }
+      &.slideinit {
+        -webkit-animation: slideinit 1s forwards;
+        -webkit-animation-delay: 0.2s;
+        animation: slideinit 1s forwards;
+        animation-delay: 0.2s;
+      }
+      &.slideleft {
+        left: 0;
+      }
+    }
+    .content {
+      display: flex;
+      align-items: center;
+      position: relative;
+      background: transparent;
+      justify-content: center;
+      overflow: hidden;
+      .text-login--a {
+        -webkit-transition: 1s ease-in-out;
+        -moz-transition: 1s ease-in-out;
+        -o-transition: 1s ease-in-out;
+        transition: 1s ease-in-out;
+        &.slide {
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+      &.slide {
+        -webkit-animation: content 0.5s forwards;
+        -webkit-animation-delay: 2s;
+        animation: content 0.5s forwards;
+        animation-delay: 2s;
+      }
+      .title-login {
+        h2 {
+          color: $white;
+          text-align: center;
+          margin: 0 0 1em 0;
+          padding: 0;
+        }
+      }
+      .down-login {
+        p {
+          color: $white;
+          text-align: center;
+          margin: 0 0 1em 0;
+          padding: 0;
+          max-width: 200px;
+        }
+      }
+      .button-login {
+        text-align: center;
+        button {
+          @include reset-appearance;
+          background: $green_login;
+          padding: 1em 4em;
+          margin: auto;
+          border-radius: 30px;
+          color: $white;
+          text-align: center;
+          display: block;
+          border: solid 1px $white;
+          &:hover {
+            background: $white;
+            color: $green_login;
+            border: solid 1px $green_login;
+          }
+        }
+      }
+    }
+    .box-login {
+      .title-login {
+        h2 {
+          color: $green_login;
+          text-align: center;
+          margin: 0 0 1em 0;
+          padding: 0;
+        }
+      }
+      .down-login {
+        p {
+          color: $gris_dark_login;
+          text-align: center;
+          margin: 0 0 1em 0;
+          padding: 0;
+        }
+      }
+      .button-login {
+        text-align: center;
+        button {
+          @include reset-appearance;
+          background: $green_login;
+          padding: 1em 4em;
+          margin: auto;
+          border-radius: 30px;
+          color: $white;
+          text-align: center;
+          display: block;
+          border: solid 1px $white;
+          &:hover {
+            background: $white;
+            color: $green_login;
+            border: solid 1px $green_login;
+          }
+        }
+      }
+      .forget-login {
+        text-align: center;
+        a {
+          color: $gris_dark_login;
+          text-align: center;
+          display: inline;
+          text-decoration: underline;
+          cursor: pointer;
+          outline: 0;
+          &:hover {
+            color: $green_login;
+          }
+        }
+      }
+      .form-login {
+        max-width: 300px;
+        width: calc(100% - 30px);
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        display: flex;
+        label {
+          display: block;
+          background: $gris_login;
+          padding: 0.8em 0.7em 0.8em 0.7em;
+          color: $gris_dark_login;
+        }
+        input {
+          @include reset-appearance;
+          color: $gris_dark_login;
+          width: 100%;
+          background: $gris_login;
+          border-radius: 0;
+          padding: 0.8em 0.5em 0.8em 0;
+          font-size: 14px;
+          @include placeholder {
+            color: $gris_dark_login;
+          }
+        }
+      }
+    }
+    .box-login--a {
+      width: 65%;
+      &.slide {
+        -webkit-animation: slideboxa 1s forwards;
+        -webkit-animation-delay: 0.2s;
+        animation: slideboxa 1s forwards;
+        animation-delay: 0.2s;
+      }
+      &.slideinit {
+        -webkit-animation: slideboxainit 1s forwards;
+        -webkit-animation-delay: 0.2s;
+        animation: slideboxainit 1s forwards;
+        animation-delay: 0.2s;
+      }
+      &.slideleft {
+        width: 35%;
+      }
+    }
+    .box-login--b {
+      width: 35%;
+      &.slide {
+        -webkit-animation: slideboxb 1s forwards;
+        -webkit-animation-delay: 0.2s;
+        animation: slideboxb 1s forwards;
+        animation-delay: 0.2s;
+      }
+      &.slideinit {
+        -webkit-animation: slideboxbinit 1s forwards;
+        -webkit-animation-delay: 0.2s;
+        animation: slideboxbinit 1s forwards;
+        animation-delay: 0.2s;
+      }
+      &.slideleft {
+        width: 65%;
+      }
+    }
+  }
+}
+
+/* slide background */
+@-webkit-keyframes slideinit {
+  0% {
+    left: 0%;
+  }
+  50% {
+    width: 50%;
+  }
+  100% {
+    left: 65%;
+    width: 35%;
+  }
+}
+
+@keyframes slideinit {
+  0% {
+    left: 0%;
+  }
+  50% {
+    width: 50%;
+  }
+  100% {
+    left: 65%;
+    width: 35%;
+  }
+}
+
+@-webkit-keyframes slide {
+  50% {
+    width: 50%;
+  }
+  100% {
+    left: 0;
+    width: 35%;
+  }
+}
+
+@keyframes slide {
+  50% {
+    width: 50%;
+  }
+  100% {
+    left: 0;
+    width: 35%;
+  }
+}
+
+/* slide Box */
+@-webkit-keyframes slideboxa {
+  100% {
+    width: 35%;
+  }
+}
+
+@keyframes slideboxa {
+  100% {
+    width: 35%;
+  }
+}
+@-webkit-keyframes slideboxb {
+  100% {
+    width: 65%;
+  }
+}
+
+@keyframes slideboxb {
+  100% {
+    width: 65%;
+  }
+}
+
+/* slide Box */
+@-webkit-keyframes slideboxainit {
+  100% {
+    width: 65%;
+  }
+}
+
+@keyframes slideboxainit {
+  100% {
+    width: 65%;
+  }
+}
+@-webkit-keyframes slideboxbinit {
+  100% {
+    width: 35%;
+  }
+}
+
+@keyframes slideboxbinit {
+  100% {
+    width: 35%;
+  }
+}

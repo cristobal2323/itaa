@@ -1,0 +1,207 @@
+.container-modal {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  left: 0;
+  transition: all 1s;
+  input[type="button"] {
+    @include reset-appearance;
+    background: $green_login;
+    padding: 0.5em 2em;
+    margin: auto;
+    border-radius: 30px;
+    color: $white;
+    text-align: center;
+    display: block;
+    border: solid 1px $white;
+    &:hover {
+      background: $white;
+      color: $green_login;
+      border: solid 1px $green_login;
+    }
+  }
+  .box-login {
+    .form-login {
+      max-width: 300px;
+      width: calc(100% - 30px);
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      display: flex;
+      label {
+        display: block;
+        background: $gris_login;
+        padding: 0.8em 0.7em 0.8em 0.7em;
+        color: $gris_dark_login;
+      }
+      input {
+        @include reset-appearance;
+        color: $gris_dark_login;
+        width: 100%;
+        background: $gris_login;
+        border-radius: 0;
+        padding: 0.8em 0.5em 0.8em 0;
+        font-size: 14px;
+        @include placeholder {
+          color: $gris_dark_login;
+        }
+      }
+    }
+  }
+  &.hide {
+    top: -100vh;
+  }
+  .box-modal {
+    position: relative;
+    width: 80%;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    max-width: 1000px;
+    min-width: 500px;
+    max-height: 70%;
+    background: #fff;
+    transition: all 1s;
+    overflow: auto;
+    border: none;
+    &.max500 {
+      max-width: 500px;
+      min-width: 300px;
+    }
+    &.start {
+      margin-right: 20%;
+    }
+    a {
+      cursor: pointer;
+      position: absolute;
+      top: 5px;
+      right: 5px;
+    }
+  }
+}
+
+.container-modal-right {
+  position: fixed;
+  max-width: 700px;
+  min-width: 500px;
+  width: 80%;
+  background: #fff;
+  z-index: 101;
+  top: 0;
+  right: 0;
+  transition: all 1s;
+  height: 100vh;
+  @include shadow;
+  &.hide {
+    right: -100vw;
+  }
+  .modal-right--title {
+    background: #a0a0a0;
+    padding: 1em 1em;
+    position: fixed;
+    width: 100%;
+    max-width: 700px;
+    z-index: 9999;
+    top: 0;
+    h2 {
+      color: $white;
+      font-size: $fontRegular;
+      margin: 0;
+      padding: 0;
+      width: calc(100% - 50px);
+    }
+  }
+  .modal-right--content {
+    margin-top: 51px;
+  }
+  .box-modal {
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    position: relative;
+    .close {
+      cursor: pointer;
+      position: absolute;
+      top: 15px;
+      right: 1%;
+      width: 20px;
+      height: 20px;
+      z-index: 20;
+      color: #fff;
+    }
+  }
+}
+
+/* Title */
+.modal-title {
+  width: 80%;
+  max-width: 500px;
+  background: $white;
+  position: relative;
+  margin: 0;
+  position: relative;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  h2 {
+    text-align: center;
+    margin: 0;
+    padding: 0.7em 0 0.1em 0;
+    color: $input_background;
+    font-size: $fontRegular;
+    font-family: $f-Bold;
+  }
+  p {
+    padding: 0;
+    margin: 0.5em 0 0 0;
+    font-size: $fontTiny;
+    color: #7c8584;
+  }
+
+  a {
+    cursor: pointer;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }
+  &:before {
+    left: 0;
+    content: "";
+    background: #fff;
+    width: 100%;
+    bottom: -1px;
+    z-index: 1;
+    height: 2;
+    position: absolute;
+  }
+}
+
+.modal-button-box {
+  width: 80%;
+  border: none;
+  padding: 1em 0 1em 0;
+  max-width: 500px;
+  background: $white;
+  position: relative;
+  margin: 0;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  &:before {
+    content: "";
+    background: #fff;
+    width: 100%;
+    max-width: 500px;
+    top: -1px;
+    z-index: 1;
+    left: 0;
+    height: 2;
+    position: absolute;
+  }
+}
