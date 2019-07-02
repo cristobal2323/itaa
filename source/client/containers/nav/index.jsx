@@ -59,20 +59,19 @@ class Nav extends Component {
   };
 
   render() {
+    let permits = [];
+    if (localStoreFN().getItem("permits")) {
+      permits = localStoreFN().getItem("permits");
+    }
     return (
       <nav>
         <div className="container-user top">
           <div className="container-user--img">
-            <h3>{`${this.props.data.datos.firstname.substr(
-              0,
-              1
-            )}${this.props.data.datos.lastname.substr(0, 1)}`}</h3>
+            <h3>{`${this.props.data.datos.email.substr(0, 2)}`}</h3>
           </div>
           <div className="container-user--mame">
             <div>
-              <p>{`${this.props.data.datos.firstname} ${
-                this.props.data.datos.lastname
-              }`}</p>
+              <p>{`${this.props.data.datos.email}`}</p>
             </div>
           </div>
         </div>
@@ -88,46 +87,48 @@ class Nav extends Component {
                 tabIndex={0}
                 data-menu="0"
               >
-                <i className="fas fa-money-bill-alt" /> Acciones
+                <i className="fas fa-eye" /> Home
               </Link>
             </li>
-            <li data-parent="b" data-menu="1">
-              <a
-                id="b"
-                onClick={this.handleNav}
-                role="button"
-                tabIndex={0}
-                data-menu="1"
-              >
-                <i className="fas fa-user" /> Usuario
-              </a>
-              <ul>
-                <li>
-                  <Link
-                    to="/dashboard/list_user"
-                    className="active"
-                    onClick={this.handleSub}
-                    role="button"
-                    tabIndex={0}
-                    data-submenu="1"
-                    data-parent="b"
-                  >
-                    Listado Usuario
-                  </Link>
-                </li>
-                <li>
-                  <a
-                    onClick={this.handleSub}
-                    role="button"
-                    tabIndex={0}
-                    data-submenu="all"
-                    data-parent="b"
-                  >
-                    Nuevo Usuario
-                  </a>
-                </li>
-              </ul>
-            </li>
+            {permits.includes("admin") && (
+              <li data-parent="b" data-menu="1">
+                <a
+                  id="b"
+                  onClick={this.handleNav}
+                  role="button"
+                  tabIndex={0}
+                  data-menu="1"
+                >
+                  <i className="fas fa-user" /> Usuario
+                </a>
+                <ul>
+                  <li>
+                    <Link
+                      to="/dashboard/list_user"
+                      className="active"
+                      onClick={this.handleSub}
+                      role="button"
+                      tabIndex={0}
+                      data-submenu="1"
+                      data-parent="b"
+                    >
+                      Listado Usuario
+                    </Link>
+                  </li>
+                  <li>
+                    <a
+                      onClick={this.handleSub}
+                      role="button"
+                      tabIndex={0}
+                      data-submenu="all"
+                      data-parent="b"
+                    >
+                      Nuevo Usuario
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            )}
           </ul>
         </div>
       </nav>

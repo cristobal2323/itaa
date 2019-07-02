@@ -19,10 +19,7 @@ class Home extends Component {
   }
   /* Estado donde realizamos el llamado a la API */
   async componentDidMount() {
-    const inputDate = document.getElementById("date").value;
-
-    await this.props.actions.fetchHomeApi({});
-    await this.props.actions.fetchHomeGraphApi({ date: inputDate });
+    //await this.props.actions.fetchHomeApi({});
   }
 
   /* Función de cerrar sesíon */
@@ -53,18 +50,7 @@ class Home extends Component {
       container = (
         <div className="main-conatiner-box">
           <Bread />
-          <Title />
-          <section className="container-home">
-            <Graph
-              loading={this.props.loadingGraph}
-              data={this.props.dataGraph}
-            />
-            <List
-              handleNav={this.handleNav}
-              loading={this.props.loading}
-              data={this.props.data}
-            />
-          </section>
+          <section className="container-home" />
         </div>
       );
     }

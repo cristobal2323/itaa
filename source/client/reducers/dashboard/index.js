@@ -4,6 +4,7 @@ import {
   FETCH_DASHBOARD_SUCCESS,
   FETCH_DASHBOARD_FAILURE
 } from "../../actions/dashboard/types";
+import { saveLocalState, deleteLocalState } from "../../store/localStorage";
 
 export default function dashboard(state = initialState, action) {
   switch (action.type) {
@@ -14,6 +15,10 @@ export default function dashboard(state = initialState, action) {
         loading: true
       };
     case FETCH_DASHBOARD_SUCCESS:
+      saveLocalState({
+        key: "permits",
+        value: action.payload.data.datos.permits
+      });
       return {
         ...state,
         data: action.payload.data,

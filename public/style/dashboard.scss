@@ -28,7 +28,7 @@ header {
     background: $header;
     img {
       width: 100%;
-      max-width: 200px;
+      max-width: 95px;
     }
   }
   .container-user {
@@ -44,10 +44,10 @@ header {
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      background: $nav;
+      background: $white;
       h3 {
         margin: 0;
-        color: $white;
+        color: $nav;
         font-size: $fontTiny;
       }
     }
@@ -64,8 +64,10 @@ header {
           position: absolute;
           right: 13px;
           top: -2px;
+          color: $white;
         }
         p {
+          color: $white;
           font-size: $fontSmall;
         }
         &:hover {
@@ -155,7 +157,7 @@ nav {
       width: 40px;
       height: 40px;
       border-radius: 50%;
-      background: $header;
+      background: $white;
       h3 {
         margin: 0;
         color: $nav;
@@ -168,7 +170,7 @@ nav {
         position: relative;
         p {
           font-size: $fontRegular;
-          color: $header;
+          color: $white;
         }
       }
     }
@@ -197,7 +199,7 @@ nav {
             -moz-transition: all 0.5s linear;
             -webkit-transition: all 0.5s linear;
             transition: all 0.5s linear;
-            color: $header;
+            color: $white;
             font-family: "Font Awesome 5 Free";
             width: 10px;
             height: 10px;
@@ -296,24 +298,99 @@ nav {
   }
 }
 
-/* title */
+/* title table */
 
-.title {
+.title-table {
   display: flex;
   width: 100%;
   padding: 1em 0;
   align-items: center;
   justify-content: space-between;
-  h1 {
-    margin: 0;
-    color: $gris_dark_text;
-  }
   h3 {
     display: inline-block;
     margin: 0 5px 0 0;
     padding: 0;
     color: $gris_dark_text;
     font-size: 16px;
+  }
+  button {
+    @include reset-appearance;
+    border: solid $header 1px;
+    padding: 0.5em 1em;
+    background: $header;
+    border-radius: 20px;
+    color: $white;
+    &:hover {
+      background: $white;
+      color: $header;
+    }
+  }
+}
+
+/* title table*/
+
+.table {
+  width: 100%;
+  background: $white;
+  border: solid 1px #b5b2b2;
+  table {
+    width: 100%;
+    table-layout: fixed;
+    -webkit-box-shadow: 0px 5px 10px 0px rgba(156, 156, 156, 1);
+    -moz-box-shadow: 0px 5px 10px 0px rgba(156, 156, 156, 1);
+    box-shadow: 0px 5px 10px 0px rgba(156, 156, 156, 1);
+    th,
+    td {
+      color: $gris_dark_text;
+      text-align: left;
+    }
+    th {
+      font-family: $f-Regular;
+      font-size: 14px;
+      border-bottom: solid 1px #b5b2b2;
+      padding: 0.7em;
+      &.center {
+        text-align: center;
+      }
+      &.th100 {
+        width: 100px;
+      }
+      &.th220 {
+        width: 220px;
+      }
+    }
+    td {
+      font-family: $f-Regular;
+      font-size: 14px;
+      border-bottom: solid 1px #ececec;
+      padding: 1em 0.7em;
+      .icon-table {
+        display: flex;
+        justify-content: center;
+        a {
+          margin: 3px;
+          color: $header;
+          &:hover {
+            color: $header_hover;
+            cursor: pointer;
+          }
+        }
+      }
+      ul {
+        list-style-type: none;
+        display: flex;
+        padding: 0;
+        margin: 0;
+        li {
+          background: $header;
+          color: $white;
+          padding: 0.4em 0.6em;
+          font-size: 12px;
+          border-radius: 20px;
+          margin-right: 5px;
+        }
+      }
+    }
   }
 }
 
@@ -356,7 +433,7 @@ nav {
 }
 .main-conatiner-box {
   width: calc(100vw - 300px);
-  padding: 1em;
+  padding: 1em 2em;
   .container-home {
     display: flex;
     width: 100%;

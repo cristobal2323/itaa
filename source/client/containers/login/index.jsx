@@ -50,19 +50,6 @@ class Login extends Component {
     }
   };
 
-  /* Funcion Register */
-  handleRegister = async event => {
-    if (!this.props.loadingRegister) {
-      event.preventDefault();
-      const obj = {
-        firstname: document.getElementById("name").value,
-        lastname: document.getElementById("last-name").value,
-        email: document.getElementById("mail-register").value
-      };
-      await this.props.actions.saveRegisterApi(obj);
-    }
-  };
-
   /* Funcion Forget */
   handleForget = async event => {
     if (!this.props.loadingRegister) {
@@ -132,10 +119,6 @@ Login.propTypes = {
   message: PropTypes.bool.isRequired,
   actions: PropTypes.oneOfType([PropTypes.func, PropTypes.object]).isRequired,
   dataRegister: PropTypes.oneOfType([PropTypes.func, PropTypes.object])
-    .isRequired,
-  loadingRegister: PropTypes.bool.isRequired,
-  statusRegister: PropTypes.number.isRequired,
-  dataForget: PropTypes.oneOfType([PropTypes.func, PropTypes.object])
     .isRequired,
   loadingForget: PropTypes.bool.isRequired,
   statusForget: PropTypes.number.isRequired

@@ -5,12 +5,12 @@ const Bread = props => (
   <div className="bread">
     <ul>
       <li>
-        <a href="">
+        <a>
           <i className="fas fa-home" />
         </a>
       </li>
       <li>
-        <a href="">Acciones</a>
+        <a>Home</a>
       </li>
     </ul>
   </div>
