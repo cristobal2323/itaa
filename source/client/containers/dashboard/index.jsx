@@ -16,6 +16,7 @@ import Nav from "../nav/";
 import Header from "../header/";
 import Home from "../home/";
 import ListUser from "../list_user/";
+import AddUser from "../add_user/";
 import Expired from "../expired/index";
 
 class Dashboard extends Component {
@@ -30,10 +31,9 @@ class Dashboard extends Component {
     let auth = localStoreFN().getItem("auth");
     const user = localStoreFN().getItem("user");
     auth = auth === "true";
-    if (!auth) {
-      this.props.history.push("/");
+    if (auth) {
+      await this.props.actions.fetchDashboardApi({ user });
     }
-    await this.props.actions.fetchDashboardApi({ user });
   }
 
   /* Función de cerrar sesíon */
@@ -66,6 +66,10 @@ class Dashboard extends Component {
               <Route
                 path={`${this.props.match.path}/list_user`}
                 component={ListUser}
+              />
+              <Route
+                path={`${this.props.match.path}/add_user`}
+                component={AddUser}
               />
             </main>
           );

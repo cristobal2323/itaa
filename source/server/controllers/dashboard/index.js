@@ -22,21 +22,25 @@ async function get(req, res) {
   console.log(req.session.token);
 
   /* Img */
-  const response = await fetch(
-    encodeURI(`${Config.api}/user.json?email=${obj.user}`),
-    {
-      method: "GET",
-      headers: new Headers({
-        Authorization: `Bearer ${req.session.token}`,
-        accept: "application/json"
-      })
-    }
-  );
+  try {
+    const response = await fetch(
+      encodeURI(`${Config.api}/user.json?email=${obj.user}`),
+      {
+        method: "GET",
+        headers: new Headers({
+          Authorization: `Bearer ${req.session.token}`,
+          accept: "application/json"
+        })
+      }
+    );
 
-  const data = await response.json();
-  data.datos.permits = permission(data.datos.permissions);
-  const status = response.status;
-  return res.status(status).send(data);
+    const data = await response.json();
+    data.datos.permits = permission(data.datos.permissions);
+    const status = response.status;
+    return res.status(status).send(data);
+  } catch (e) {
+    return res.status(401).send({});
+  }
 }
 
 module.exports = {

@@ -22,22 +22,6 @@ class Home extends Component {
     //await this.props.actions.fetchHomeApi({});
   }
 
-  /* Función de cerrar sesíon */
-  handleNav = async event => {
-    const selectAll = document.querySelectorAll("[data-menuh]");
-    for (let i = 0; selectAll.length > i; i++) {
-      selectAll[i].classList.remove("active");
-    }
-
-    event.target.classList.add("active");
-    const inputDate = document.getElementById("date").value;
-
-    await this.props.actions.fetchHomeGraphApi({
-      id: event.target.id,
-      date: inputDate
-    });
-  };
-
   render() {
     let container;
     if (this.props.status === 401 || this.props.statusGraph === 401) {

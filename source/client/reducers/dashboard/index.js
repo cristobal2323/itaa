@@ -30,7 +30,7 @@ export default function dashboard(state = initialState, action) {
         ...state,
         data: false,
         loading: false,
-        status: 501
+        status: 401
       };
     default:
       return state;

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
 import { bindActionCreators } from "redux";
-import Logo from "../../../../public/images/logo.jpg";
+import Logo from "../../../../public/images/logowh.png";
 
 /* function */
 import functionLogin from "../function/login";

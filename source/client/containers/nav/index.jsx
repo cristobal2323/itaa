@@ -116,15 +116,17 @@ class Nav extends Component {
                     </Link>
                   </li>
                   <li>
-                    <a
+                    <Link
+                      to="/dashboard/add_user"
+                      className="active"
                       onClick={this.handleSub}
                       role="button"
                       tabIndex={0}
-                      data-submenu="all"
+                      data-submenu="2"
                       data-parent="b"
                     >
                       Nuevo Usuario
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </li>

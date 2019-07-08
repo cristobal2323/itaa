@@ -17,6 +17,9 @@ import dashboardRoute from "./routes/dashboard/";
 /* Home */
 import homeRoute from "./routes/home/";
 
+/* List user */
+import listUserRoute from "./routes/user/";
+
 /* Login */
 import loginRoute from "./routes/login/";
 import localStoreRoute from "./routes/localStore/";
@@ -38,6 +41,9 @@ app.use(
     keys: ["llave-1"]
   })
 );
+
+/* List User */
+app.use("/api/user", listUserRoute.user);
 
 /* Home */
 app.use("/api/home", homeRoute.home);
