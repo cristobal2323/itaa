@@ -1,16 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const Bread = props => (
   <div className="bread">
     <ul>
       <li>
-        <a href="">
+        <Link to="/dashboard">
           <i className="fas fa-home" />
-        </a>
+        </Link>
       </li>
       <li>
-        <a href="">Listado usuario</a>
+        <Link to="/dashboard/list_user">Listado usuarios</Link>
       </li>
       <li>
         <a href="">Nuevo usuario</a>

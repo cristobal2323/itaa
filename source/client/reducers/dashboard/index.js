@@ -2,7 +2,8 @@ import initialState from "./initialState";
 import {
   FETCH_DASHBOARD_INIT,
   FETCH_DASHBOARD_SUCCESS,
-  FETCH_DASHBOARD_FAILURE
+  FETCH_DASHBOARD_FAILURE,
+  RESET_DASHBOARD
 } from "../../actions/dashboard/types";
 import { saveLocalState, deleteLocalState } from "../../store/localStorage";
 
@@ -31,6 +32,13 @@ export default function dashboard(state = initialState, action) {
         data: false,
         loading: false,
         status: 401
+      };
+    case RESET_DASHBOARD:
+      return {
+        ...state,
+        loading: true,
+        data: false,
+        status: 0
       };
     default:
       return state;

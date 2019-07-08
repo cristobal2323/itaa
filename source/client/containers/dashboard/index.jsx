@@ -39,6 +39,7 @@ class Dashboard extends Component {
   /* Función de cerrar sesíon */
   handleLogOut = async () => {
     await this.props.loginActions.logOut();
+    this.props.actions.resetDashboard();
     this.props.history.push("/");
   };
 

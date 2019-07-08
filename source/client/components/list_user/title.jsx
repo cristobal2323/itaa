@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 import Date from "../../containers/common/date";
 
@@ -9,7 +10,7 @@ const Title = props => (
       <h3>Usuarios</h3>
     </div>
     <div>
-      <button>Nuevo usuario</button>
+      <Link to="/dashboard/add_user">Nuevo usuario</Link>
     </div>
   </div>
 );

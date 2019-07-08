@@ -56,8 +56,6 @@ LoginForm.propTypes = {
   handleModal: PropTypes.func.isRequired,
   handleLog: PropTypes.func.isRequired,
   logo: PropTypes.string.isRequired,
-  dataRegister: PropTypes.oneOfType([PropTypes.func, PropTypes.object])
-    .isRequired,
   loadingRegister: PropTypes.bool.isRequired,
   statusRegister: PropTypes.number.isRequired,
   message: PropTypes.bool.isRequired

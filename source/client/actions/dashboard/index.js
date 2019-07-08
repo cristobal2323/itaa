@@ -1,9 +1,16 @@
 import {
   FETCH_DASHBOARD_INIT,
   FETCH_DASHBOARD_SUCCESS,
-  FETCH_DASHBOARD_FAILURE
+  FETCH_DASHBOARD_FAILURE,
+  RESET_DASHBOARD
 } from "./types";
 import API from "./api";
+
+export function resetDashboard() {
+  return {
+    type: RESET_DASHBOARD
+  };
+}
 
 /* Config setting */
 
