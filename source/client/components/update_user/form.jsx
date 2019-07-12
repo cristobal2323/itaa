@@ -19,6 +19,13 @@ const Form = props => (
           id="email"
           value={props.form.email}
         />
+        <input
+          onChange={props.handleChange}
+          type="hidden"
+          name="id"
+          id="id"
+          value={props.form.id}
+        />
       </div>
       <div>
         <label htmlFor="contrasena">Contraseña</label>
@@ -47,9 +54,8 @@ const Form = props => (
               status: props.status,
               data: props.data,
               message401: "No tiene los permisos necesarios.",
-              messageSuccess:
-                "   Se ha enviado un email al usuario con su user y contraseña.",
-              messageError: "Error al ingresar el usuario."
+              messageSuccess: "Se ha actualizado con éxito el usuario.",
+              messageError: "Error al actualizar el usuario."
             })}
         </div>
         <div>
@@ -58,7 +64,7 @@ const Form = props => (
               <i className="fas fa-spinner fa-spin" />
             </article>
           ) : (
-            <input type="submit" value="Ingresar" />
+            <input type="submit" value="Actualizar" />
           )}
         </div>
       </article>

@@ -37,11 +37,14 @@ class AddUser extends Component {
     }
   }
 
+  componentWillUnmount() {
+    this.props.actions.resetAddUser();
+  }
+
   /* Funcion submit */
   handleSubmit = async event => {
     event.preventDefault();
     await this.props.actions.saveUserApi(this.state.form);
-    console.log(this.state.form);
   };
 
   /* Funcion handle change */
@@ -55,7 +58,6 @@ class AddUser extends Component {
   };
 
   render() {
-    console.log(this.props.data);
     let container;
     container = (
       <div className="main-conatiner-box">

@@ -44,6 +44,7 @@ app.use(
 
 /* List User */
 app.use("/api/user", listUserRoute.user);
+app.use("/api/getuser", listUserRoute.getUser);
 
 /* Home */
 app.use("/api/home", homeRoute.home);

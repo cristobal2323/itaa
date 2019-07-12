@@ -1,3 +1,5 @@
 export const SAVE_USER_INIT = "SAVE_USER_INIT";
 export const SAVE_USER_SUCCESS = "SAVE_USER_SUCCESS";
 export const SAVE_USER_FAILURE = "SAVE_USER_FAILURE";
+
+export const RESET_ADD_USER = " RESET_ADD_USER";

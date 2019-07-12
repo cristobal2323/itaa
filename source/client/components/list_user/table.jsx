@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const Table = props => (
   <div className="table top">
@@ -26,11 +27,11 @@ const Table = props => (
             </td>
             <td>
               <div className="icon-table">
+                <Link to={`update_user/${item.id}`}>
+                  <i className="fas fa-user-edit" />
+                </Link>
                 <a>
                   <i className="fas fa-trash-alt" />
-                </a>
-                <a>
-                  <i className="fas fa-user-edit" />
                 </a>
               </div>
             </td>

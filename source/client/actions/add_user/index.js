@@ -1,5 +1,16 @@
-import { SAVE_USER_INIT, SAVE_USER_SUCCESS, SAVE_USER_FAILURE } from "./types";
+import {
+  SAVE_USER_INIT,
+  SAVE_USER_SUCCESS,
+  SAVE_USER_FAILURE,
+  RESET_ADD_USER
+} from "./types";
 import API from "./api";
+
+export function resetAddUser() {
+  return {
+    type: RESET_ADD_USER
+  };
+}
 
 /* LOG_IN (Async) */
 

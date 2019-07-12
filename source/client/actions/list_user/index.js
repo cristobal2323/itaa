@@ -1,11 +1,17 @@
 import {
   FETCH_LIST_USER_INIT,
   FETCH_LIST_USER_SUCCESS,
-  FETCH_LIST_USER_FAILURE
+  FETCH_LIST_USER_FAILURE,
+  RESET_LIST_USER
 } from "./types";
 import API from "./api";
 
 /* Config setting */
+export function resetListUser() {
+  return {
+    type: RESET_LIST_USER
+  };
+}
 
 function fetchApiSuccess(data) {
   return {

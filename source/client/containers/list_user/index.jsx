@@ -6,6 +6,7 @@ import { bindActionCreators } from "redux";
 import Bread from "../../components/list_user/bread";
 import Title from "../../components/list_user/title";
 import Table from "../../components/list_user/table";
+import Spiner from "../../components/list_user/spiner";
 import Expired from "../expired/index";
 
 /* Local store */
@@ -31,9 +32,13 @@ class ListUser extends Component {
     }
   }
 
+  componentWillUnmount() {
+    this.props.actions.resetListUser();
+  }
+
   render() {
     let container;
-    if (this.props.status === 401 || this.props.statusGraph === 401) {
+    if (this.props.status === 401) {
       container = (
         <section className="main">
           <Expired history={this.props.history} />
@@ -45,6 +50,7 @@ class ListUser extends Component {
           <Bread />
           <Title />
           <Table data={this.props.data} />
+          <Spiner loading={this.props.loading} />
         </div>
       );
     }
