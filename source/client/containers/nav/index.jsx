@@ -90,6 +90,45 @@ class Nav extends Component {
                 <i className="fas fa-eye" /> Home
               </Link>
             </li>
+            <li data-parent="c" data-menu="2">
+              <a
+                id="c"
+                onClick={this.handleNav}
+                role="button"
+                tabIndex={0}
+                data-menu="2"
+              >
+                <i className="fas fa-id-card" /> Datos personales
+              </a>
+              <ul>
+                <li>
+                  <Link
+                    to="/dashboard/list_personal_data"
+                    className="active"
+                    onClick={this.handleSub}
+                    role="button"
+                    tabIndex={0}
+                    data-submenu="1"
+                    data-parent="c"
+                  >
+                    Listado datos personales
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/dashboard/add_personal_data"
+                    className="active"
+                    onClick={this.handleSub}
+                    role="button"
+                    tabIndex={0}
+                    data-submenu="2"
+                    data-parent="c"
+                  >
+                    Nuevo dato personal
+                  </Link>
+                </li>
+              </ul>
+            </li>
             {permits.includes("admin") && (
               <li data-parent="b" data-menu="1">
                 <a

@@ -7,6 +7,7 @@ const getUser = express.Router();
 user.get("/:obj", userCtrl.get);
 user.post("/", userCtrl.add);
 user.put("/", userCtrl.update);
+user.delete("/:obj", userCtrl.deleteEntidad);
 
 getUser.get("/:obj", userCtrl.getUser);
 

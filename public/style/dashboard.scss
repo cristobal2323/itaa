@@ -367,6 +367,9 @@ nav {
       font-size: 14px;
       border-bottom: solid 1px #ececec;
       padding: 1em 0.7em;
+      &.center {
+        text-align: center;
+      }
       .icon-table {
         display: flex;
         justify-content: center;
@@ -441,6 +444,7 @@ nav {
 .main-conatiner-box {
   width: calc(100vw - 300px);
   padding: 1em 2em;
+  min-width: 800px;
   .container-home {
     display: flex;
     width: 100%;
@@ -563,6 +567,23 @@ nav {
       color: $gris_dark_text;
       font-size: 12px;
     }
+    select {
+      @include reset-appearance;
+      position: relative;
+      padding: 7.5px 1em;
+      width: 100%;
+      color: $gris_dark_text;
+      font-size: 12px;
+      background-color: $white;
+      background-image: url("../images/sort-down-grey.png");
+      background-repeat: no-repeat;
+      background-size: 10px 10px;
+      background-position: 98% center;
+      border: solid 1px $gris;
+      &:hover {
+        border: solid 1px #929292;
+      }
+    }
     input[type="submit"] {
       @include reset-appearance;
       border: solid $header 1px;
@@ -576,6 +597,31 @@ nav {
         background: $white;
         color: $header;
       }
+    }
+  }
+}
+
+/* Paginator */
+
+.paginator {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  div {
+    padding: 6px 0;
+    margin: 2px;
+    min-width: 37px;
+    border: solid 1px $gris;
+    text-align: center;
+    color: $white;
+    background: $header;
+    &:hover {
+      background: $header_hover;
+      cursor: pointer;
+    }
+    &.active {
+      background: $header_hover;
+      cursor: pointer;
     }
   }
 }

@@ -17,6 +17,8 @@ import Header from "../header/";
 import Home from "../home/";
 import ListUser from "../list_user/";
 import AddUser from "../add_user/";
+import ListDatosPersonales from "../list_datos_personales/";
+import AddDatosPersonales from "../add_datos_personales/";
 import UpdateUser from "../update_user/";
 import Expired from "../expired/index";
 
@@ -43,6 +45,10 @@ class Dashboard extends Component {
     this.props.actions.resetDashboard();
     this.props.history.push("/");
   };
+
+  componentWillUnmount() {
+    this.props.actions.resetDashboard();
+  }
 
   /* Render: contamos con el Header y Nav */
   render() {
@@ -76,6 +82,14 @@ class Dashboard extends Component {
               <Route
                 path={`${this.props.match.path}/update_user/:id`}
                 component={UpdateUser}
+              />
+              <Route
+                path={`${this.props.match.path}/list_personal_data`}
+                component={ListDatosPersonales}
+              />
+              <Route
+                path={`${this.props.match.path}/add_personal_data`}
+                component={AddDatosPersonales}
               />
             </main>
           );

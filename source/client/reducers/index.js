@@ -8,6 +8,7 @@ import home from "./home/";
 import list_user from "./list_user/";
 import add_user from "./add_user/";
 import update_user from "./update_user/";
+import list_datos_personales from "./list_datos_personales/";
 
 const reducer = combineReducers({
   login,
@@ -16,7 +17,8 @@ const reducer = combineReducers({
   nav,
   list_user,
   add_user,
-  update_user
+  update_user,
+  list_datos_personales
 });
 
 export default reducer;

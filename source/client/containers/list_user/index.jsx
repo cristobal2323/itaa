@@ -7,6 +7,7 @@ import Bread from "../../components/list_user/bread";
 import Title from "../../components/list_user/title";
 import Table from "../../components/list_user/table";
 import Spiner from "../../components/list_user/spiner";
+import Modal from "../../components/list_user/modalDelete";
 import Expired from "../expired/index";
 
 /* Local store */
@@ -18,7 +19,11 @@ import * as listUserActions from "../../actions/list_user/index";
 class ListUser extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      modal: false,
+      id: null,
+      num: null
+    };
   }
 
   /* Estado donde realizamos el llamado a la API */
@@ -36,6 +41,39 @@ class ListUser extends Component {
     this.props.actions.resetListUser();
   }
 
+  handleModal = async event => {
+    if (event.target.dataset.close === "ok") {
+      let value;
+      if (this.state.modal !== false) {
+        value = false;
+        const num = this.state.num;
+        this.setState({ modal: value, id: null, num: null });
+        if (this.props.statusDelete === 200) {
+          await this.props.actions.fetchListUserApi({});
+        }
+        this.props.actions.resetModalUser();
+      } else {
+        value = true;
+        this.setState({
+          modal: value,
+          id: event.target.dataset.id,
+          num: event.target.dataset.num
+        });
+      }
+    }
+  };
+
+  /* Funcion Delete */
+  handleDelete = async event => {
+    if (!this.props.loadingDelete) {
+      event.preventDefault();
+      const obj = {
+        id: this.state.id
+      };
+      await this.props.actions.deleteUserApi(obj);
+    }
+  };
+
   render() {
     let container;
     if (this.props.status === 401) {
@@ -44,13 +82,29 @@ class ListUser extends Component {
           <Expired history={this.props.history} />
         </section>
       );
+    } else if (this.props.status === 200) {
+      container = (
+        <div className="main-conatiner-box">
+          <Bread />
+          <Title />
+          <Table handleModal={this.handleModal} data={this.props.data} />
+          <Spiner loading={this.props.loading} />
+          <Modal
+            handleDelete={this.handleDelete}
+            handleModal={this.handleModal}
+            modal={this.state.modal}
+            dataDelete={this.props.dataDelete}
+            statusDelete={this.props.statusDelete}
+            loadingDelete={this.props.loadingDelete}
+          />
+        </div>
+      );
     } else {
       container = (
         <div className="main-conatiner-box">
           <Bread />
           <Title />
-          <Table data={this.props.data} />
-          <Spiner loading={this.props.loading} />
+          <Spiner loading={true} />
         </div>
       );
     }
@@ -62,7 +116,10 @@ class ListUser extends Component {
 const mapStateToProps = state => ({
   data: state.reducer.list_user.data,
   loading: state.reducer.list_user.loading,
-  status: state.reducer.list_user.status
+  status: state.reducer.list_user.status,
+  dataDelete: state.reducer.list_user.dataDelete,
+  loadingDelete: state.reducer.list_user.loadingDelete,
+  statusDelete: state.reducer.list_user.statusDelete
 });
 
 const mapDispatchToProps = dispatch => ({

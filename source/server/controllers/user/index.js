@@ -51,6 +51,7 @@ async function add(req, res) {
       {
         method: "POST",
         headers: new Headers({
+          Authorization: `Bearer ${req.session.token}`,
           "Content-Type": "application/json",
           Accept: "application/json"
         }),
@@ -83,6 +84,7 @@ async function update(req, res) {
       {
         method: "POST",
         headers: new Headers({
+          Authorization: `Bearer ${req.session.token}`,
           "Content-Type": "application/json",
           Accept: "application/json"
         }),
@@ -97,9 +99,31 @@ async function update(req, res) {
   }
 }
 
+async function deleteEntidad(req, res) {
+  try {
+    const obj = JSON.parse(req.params.obj);
+    console.log("deleteuser", `${Config.api}/eliuser?id=${obj.id}`);
+    const response = await fetch(`${Config.api}/eliuser?id=${obj.id}`, {
+      method: "DELETE",
+      headers: new Headers({
+        Authorization: `Bearer ${req.session.token}`,
+        "Content-Type": "application/json",
+        Accept: "application/json"
+      }),
+      body: JSON.stringify(req.body)
+    });
+    const data = await response.json();
+    const status = response.status;
+    return res.status(status).send(data);
+  } catch (err) {
+    return res.status(401).send({ message: "Problem API" });
+  }
+}
+
 module.exports = {
   get,
   getUser,
   add,
-  update
+  update,
+  deleteEntidad
 };

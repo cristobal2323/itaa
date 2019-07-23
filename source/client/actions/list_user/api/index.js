@@ -14,6 +14,14 @@ const API = {
         data,
         status
       };
+    },
+    async deleteEntidad(obj) {
+      const response = await fetch(`/api/user/${JSON.stringify(obj)}`, {
+        method: "DELETE"
+      });
+      const status = response.status;
+      const data = await response.json();
+      return { data: data, status: status };
     }
   }
 };

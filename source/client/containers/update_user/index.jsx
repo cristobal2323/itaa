@@ -43,7 +43,6 @@ class UpdateUser extends Component {
 
   async componentDidUpdate(prevProps) {
     if (this.props.data !== prevProps.data) {
-      console.log("a", this.props.data);
       if (this.props.data.ejecucion.estado) {
         const email = this.props.data.datos.email;
         const id = this.props.data.datos.id;
@@ -79,7 +78,6 @@ class UpdateUser extends Component {
   };
 
   render() {
-    console.log(this.props.dataUpdate);
     let container;
     if (this.props.status === 401) {
       container = (

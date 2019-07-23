@@ -20,6 +20,9 @@ import homeRoute from "./routes/home/";
 /* List user */
 import listUserRoute from "./routes/user/";
 
+/* datosPersonales */
+import datosPersonalesRoute from "./routes/datos_personales/";
+
 /* Login */
 import loginRoute from "./routes/login/";
 import localStoreRoute from "./routes/localStore/";
@@ -41,6 +44,10 @@ app.use(
     keys: ["llave-1"]
   })
 );
+
+/* Datos personales */
+app.use("/api/datosPersonales", datosPersonalesRoute.datosPersonales);
+app.use("/api/datosPersonalesCount", datosPersonalesRoute.datosPersonalesCount);
 
 /* List User */
 app.use("/api/user", listUserRoute.user);

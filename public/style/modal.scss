@@ -26,6 +26,15 @@
       color: $green_login;
       border: solid 1px $green_login;
     }
+    &.cancel {
+      border: solid 1px $gris_dark_login;
+      color: $gris_dark_login;
+      background: $white;
+      &:hover {
+        color: $green_login;
+        border: solid 1px $green_login;
+      }
+    }
   }
   .box-login {
     .form-login {
@@ -193,6 +202,25 @@
   margin: 0;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
+  .buttons-container {
+    display: flex;
+    justify-content: center;
+    div {
+      padding: 0.5em;
+    }
+  }
+  .normal {
+    padding: 0;
+    margin: 0 0 1em 0;
+    font-size: 12px;
+    color: $input_background;
+  }
+  .error {
+    color: $red;
+  }
+  .success {
+    color: $green;
+  }
   &:before {
     content: "";
     background: #fff;
