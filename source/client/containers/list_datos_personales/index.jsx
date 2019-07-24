@@ -36,16 +36,10 @@ class ListDatosPersonales extends Component {
 
   /* Estado donde realizamos el llamado a la API */
   async componentDidMount() {
-    const permits = localStoreFN().getItem("permits");
-    const permit = permits.includes("admin");
-    if (permit) {
-      await this.props.actions.fetchDatosPersonalesApi({
-        pag: this.state.paginator
-      });
-      await this.props.actions.fetchDatosPersonalesCountApi({});
-    } else {
-      this.props.history.push("/dashboard");
-    }
+    await this.props.actions.fetchDatosPersonalesApi({
+      pag: this.state.paginator
+    });
+    await this.props.actions.fetchDatosPersonalesCountApi({});
   }
 
   componentWillUnmount() {

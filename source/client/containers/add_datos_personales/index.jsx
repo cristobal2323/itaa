@@ -6,14 +6,14 @@ import { bindActionCreators } from "redux";
 import Bread from "../../components/add_datos_personales/bread";
 import Title from "../../components/add_datos_personales/title";
 import Form from "../../components/add_datos_personales/form";
-
+import Spiner from "../../components/add_datos_personales/spiner";
 import Expired from "../expired/index";
 
 /* Local store */
 import { localStoreFN } from "../../store/localStorage";
 
 /* Actions */
-import * as addUserActions from "../../actions/add_user/index";
+import * as addDatosPersonalesActions from "../../actions/add_datos_personales/index";
 
 class AddDatosPersonales extends Component {
   constructor(props) {
@@ -24,7 +24,7 @@ class AddDatosPersonales extends Component {
         nombres: "",
         apellidoPaterno: "",
         apellidoMaterno: "",
-        sexo: "Mujer",
+        sexo: "",
         rut: "",
         date: "",
         telefono: "",
@@ -43,16 +43,11 @@ class AddDatosPersonales extends Component {
 
   /* Estado donde realizamos el llamado a la API */
   async componentDidMount() {
-    const permits = localStoreFN().getItem("permits");
-    const permit = permits.includes("admin");
-    if (permit) {
-    } else {
-      this.props.history.push("/dashboard");
-    }
+    await this.props.actions.fetchDatosPersonalesInfoApi({});
   }
 
   componentWillUnmount() {
-    this.props.actions.resetAddUser();
+    this.props.actions.resetAddDatosPersonales();
   }
 
   /* Funcion submit */
@@ -62,44 +57,73 @@ class AddDatosPersonales extends Component {
   };
 
   /* Funcion handle change */
-  handleChange = e => {
+  handleChange = async e => {
     this.setState({
       form: {
         ...this.state.form,
         [e.target.name]: e.target.value
       }
     });
+    if (e.target.name == "region") {
+      await this.props.actions.fetchDatosPersonalesInfoApi({
+        region: e.target.value
+      });
+    } else if (e.target.name == "provincia") {
+      await this.props.actions.fetchDatosPersonalesInfoApi({
+        region: document.getElementById("region").value,
+        provincia: e.target.value
+      });
+    }
   };
 
   render() {
+    console.log(this.props.dataInfo);
     let container;
-    container = (
-      <div className="main-conatiner-box">
-        <Bread />
-        <Title />
-        <Form
-          form={this.state.form}
-          handleChange={this.handleChange}
-          handleSubmit={this.handleSubmit}
-          data={this.props.data}
-          status={this.props.status}
-          loading={this.props.loading}
-        />
-      </div>
-    );
+    if (this.props.statusInfo === 401) {
+      container = (
+        <section className="main">
+          <Expired history={this.props.history} />
+        </section>
+      );
+    } else if (this.props.statusInfo === 200) {
+      container = (
+        <div className="main-conatiner-box">
+          <Bread />
+          <Title />
+          <Form
+            form={this.state.form}
+            handleChange={this.handleChange}
+            handleSubmit={this.handleSubmit}
+            data={this.props.dataInfo}
+            status={this.props.statusInfo}
+            loading={this.props.loadingInfo}
+            dataSave={0}
+            statusSave={false}
+          />
+        </div>
+      );
+    } else {
+      container = (
+        <div className="main-conatiner-box">
+          <Bread />
+          <Title />
+          <Spiner loading={true} />
+        </div>
+      );
+    }
 
     return <section className="main-container">{container}</section>;
   }
 }
 
 const mapStateToProps = state => ({
-  data: state.reducer.add_user.data,
-  loading: state.reducer.add_user.loading,
-  status: state.reducer.add_user.status
+  dataInfo: state.reducer.add_datos_personales.dataInfo,
+  loadingInfo: state.reducer.add_datos_personales.loadingInfo,
+  statusInfo: state.reducer.add_datos_personales.statusInfo
 });
 
 const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators(addUserActions, dispatch)
+  actions: bindActionCreators(addDatosPersonalesActions, dispatch)
 });
 
 AddDatosPersonales.propTypes = {

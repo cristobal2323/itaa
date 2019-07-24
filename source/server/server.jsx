@@ -48,6 +48,8 @@ app.use(
 /* Datos personales */
 app.use("/api/datosPersonales", datosPersonalesRoute.datosPersonales);
 app.use("/api/datosPersonalesCount", datosPersonalesRoute.datosPersonalesCount);
+app.use("/api/datosPersonalesInfo", datosPersonalesRoute.datosPersonalesInfo);
+app.use("/api/getdatosPersonales", datosPersonalesRoute.getDatosPersonales);
 
 /* List User */
 app.use("/api/user", listUserRoute.user);

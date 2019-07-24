@@ -246,7 +246,7 @@ const Form = props => (
               <i className="fas fa-spinner fa-spin" />
             </article>
           ) : (
-            <input type="submit" value="Ingresar" />
+            <input type="submit" value="Actualizar" />
           )}
         </div>
       </article>

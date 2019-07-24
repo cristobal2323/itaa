@@ -31,7 +31,7 @@ const Table = props => (
 
               <td>
                 <div className="icon-table">
-                  <Link to={`update_user/${item.id}`}>
+                  <Link to={`update_personal_data/${item.user_id}`}>
                     <i className="fas fa-user-edit" />
                   </Link>
                   <a

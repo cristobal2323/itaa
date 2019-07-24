@@ -17,9 +17,10 @@ import Header from "../header/";
 import Home from "../home/";
 import ListUser from "../list_user/";
 import AddUser from "../add_user/";
+import UpdateUser from "../update_user/";
 import ListDatosPersonales from "../list_datos_personales/";
 import AddDatosPersonales from "../add_datos_personales/";
-import UpdateUser from "../update_user/";
+import UpdateDatosPersonales from "../update_datos_personales/";
 import Expired from "../expired/index";
 
 class Dashboard extends Component {
@@ -90,6 +91,10 @@ class Dashboard extends Component {
               <Route
                 path={`${this.props.match.path}/add_personal_data`}
                 component={AddDatosPersonales}
+              />
+              <Route
+                path={`${this.props.match.path}/update_personal_data/:id`}
+                component={UpdateDatosPersonales}
               />
             </main>
           );
