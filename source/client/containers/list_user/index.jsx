@@ -71,6 +71,7 @@ class ListUser extends Component {
         id: this.state.id
       };
       await this.props.actions.deleteUserApi(obj);
+      await this.props.actions.fetchListUserApi({});
     }
   };
 

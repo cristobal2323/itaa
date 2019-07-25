@@ -42,7 +42,7 @@ class ListDatosPersonales extends Component {
     await this.props.actions.fetchDatosPersonalesCountApi({});
   }
 
-  componentWillUnmount() {
+  async componentWillUnmount() {
     this.props.actions.resetListDatosPersonales();
   }
 

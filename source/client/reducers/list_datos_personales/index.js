@@ -19,8 +19,8 @@ export default function listUser(state = initialState, action) {
     case RESET_LIST_DATOS_PERSONALES:
       return {
         ...state,
-        status: 200,
-        statusCount: 200
+        status: 0,
+        statusCount: 0
       };
     case RESET_MODAL_DATOS_PERSONALES:
       return {

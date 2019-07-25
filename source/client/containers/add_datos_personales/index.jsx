@@ -77,7 +77,6 @@ class AddDatosPersonales extends Component {
   };
 
   render() {
-    console.log(this.props.dataInfo);
     let container;
     if (this.props.statusInfo === 401) {
       container = (
