@@ -26,6 +26,9 @@ import datosPersonalesRoute from "./routes/datos_personales/";
 /* trabajadorEmpresa */
 import trabajadorEmpresaRoute from "./routes/trabajador_empresa/";
 
+/* examenMedico */
+import examenMedicoRoute from "./routes/examen_medico/";
+
 /* Login */
 import loginRoute from "./routes/login/";
 import localStoreRoute from "./routes/localStore/";
@@ -47,6 +50,12 @@ app.use(
     keys: ["llave-1"]
   })
 );
+
+/* Examen medico*/
+app.use("/api/examenMedico", examenMedicoRoute.examenMedico);
+app.use("/api/examenMedicoCount", examenMedicoRoute.examenMedicoCount);
+app.use("/api/examenMedicoInfo", examenMedicoRoute.examenMedicoInfo);
+app.use("/api/getexamenMedico", examenMedicoRoute.getExamenMedico);
 
 /* Trabajador Empresa */
 app.use("/api/trabajadorEmpresa", trabajadorEmpresaRoute.trabajadorEmpresa);

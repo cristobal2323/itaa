@@ -27,6 +27,9 @@ import ListTrabajadorEmpresa from "../list_trabajador_empresa/";
 import AddTrabajadorEmpresa from "../add_trabajador_empresa/";
 import UpdateTrabajadorEmpresa from "../update_trabajador_empresa/";
 
+import ListExamenMedico from "../list_examen_medico";
+import AddExamenMedico from "../add_examen_medico/";
+
 import Expired from "../expired/index";
 
 class Dashboard extends Component {
@@ -113,6 +116,14 @@ class Dashboard extends Component {
               <Route
                 path={`${this.props.match.path}/update_trabajador_empresa/:id`}
                 component={UpdateTrabajadorEmpresa}
+              />
+              <Route
+                path={`${this.props.match.path}/list_examen_medico`}
+                component={ListExamenMedico}
+              />
+              <Route
+                path={`${this.props.match.path}/add_examen_medico`}
+                component={AddExamenMedico}
               />
             </main>
           );
