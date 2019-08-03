@@ -23,6 +23,9 @@ import listUserRoute from "./routes/user/";
 /* datosPersonales */
 import datosPersonalesRoute from "./routes/datos_personales/";
 
+/* trabajadorEmpresa */
+import trabajadorEmpresaRoute from "./routes/trabajador_empresa/";
+
 /* Login */
 import loginRoute from "./routes/login/";
 import localStoreRoute from "./routes/localStore/";
@@ -43,6 +46,21 @@ app.use(
     name: "session",
     keys: ["llave-1"]
   })
+);
+
+/* Trabajador Empresa */
+app.use("/api/trabajadorEmpresa", trabajadorEmpresaRoute.trabajadorEmpresa);
+app.use(
+  "/api/trabajadorEmpresaCount",
+  trabajadorEmpresaRoute.trabajadorEmpresaCount
+);
+app.use(
+  "/api/trabajadorEmpresaInfo",
+  trabajadorEmpresaRoute.trabajadorEmpresaInfo
+);
+app.use(
+  "/api/gettrabajadorEmpresa",
+  trabajadorEmpresaRoute.getTrabajadorEmpresa
 );
 
 /* Datos personales */

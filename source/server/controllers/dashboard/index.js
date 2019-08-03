@@ -20,7 +20,7 @@ function permission(permissions) {
 async function get(req, res) {
   const obj = JSON.parse(req.params.obj);
   console.log(req.session.token);
-
+  console.log(`${Config.api}/user.json?email=${obj.user}`);
   /* Img */
   try {
     const response = await fetch(

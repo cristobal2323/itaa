@@ -11,6 +11,9 @@ import update_user from "./update_user/";
 import list_datos_personales from "./list_datos_personales/";
 import add_datos_personales from "./add_datos_personales/";
 import update_datos_personales from "./update_datos_personales/";
+import list_trabajador_empresa from "./list_trabajador_empresa/";
+import add_trabajador_empresa from "./add_trabajador_empresa/";
+import update_trabajador_empresa from "./update_trabajador_empresa/";
 
 const reducer = combineReducers({
   login,
@@ -22,7 +25,10 @@ const reducer = combineReducers({
   update_user,
   list_datos_personales,
   add_datos_personales,
-  update_datos_personales
+  update_datos_personales,
+  list_trabajador_empresa,
+  add_trabajador_empresa,
+  update_trabajador_empresa
 });
 
 export default reducer;

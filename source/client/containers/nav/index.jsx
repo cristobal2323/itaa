@@ -129,6 +129,45 @@ class Nav extends Component {
                 </li>
               </ul>
             </li>
+            <li data-parent="d" data-menu="3">
+              <a
+                id="d"
+                onClick={this.handleNav}
+                role="button"
+                tabIndex={0}
+                data-menu="3"
+              >
+                <i className="fas fa-building" /> Trabajador
+              </a>
+              <ul>
+                <li>
+                  <Link
+                    to="/dashboard/list_trabajador_empresa"
+                    className="active"
+                    onClick={this.handleSub}
+                    role="button"
+                    tabIndex={0}
+                    data-submenu="1"
+                    data-parent="d"
+                  >
+                    Listado Trabajador
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/dashboard/add_trabajador_empresa"
+                    className="active"
+                    onClick={this.handleSub}
+                    role="button"
+                    tabIndex={0}
+                    data-submenu="2"
+                    data-parent="d"
+                  >
+                    Nuevo Trabajador
+                  </Link>
+                </li>
+              </ul>
+            </li>
             {permits.includes("admin") && (
               <li data-parent="b" data-menu="1">
                 <a
