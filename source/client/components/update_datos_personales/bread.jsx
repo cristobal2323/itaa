@@ -14,7 +14,7 @@ const Bread = props => (
         <Link to="/dashboard/list_personal_data">Listado datos personales</Link>
       </li>
       <li>
-        <a href="">Actualizar usuario</a>
+        <a href="">Actualizar datos personales</a>
       </li>
     </ul>
   </div>

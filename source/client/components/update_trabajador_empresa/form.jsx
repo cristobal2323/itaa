@@ -128,6 +128,16 @@ const Form = props => (
         />
       </div>
       <div className="top">
+        <label htmlFor="antiguedad">Antigüedad</label>
+        <input
+          onChange={props.handleChange}
+          type="number"
+          name="antiguedad"
+          id="antiguedad"
+          value={props.form.antiguedad}
+        />
+      </div>
+      <div className="top">
         <label htmlFor="horaInicio">Horario</label>
         <select
           name="horario"
@@ -143,6 +153,19 @@ const Form = props => (
               ).format(" HH:mm")}`}
             </option>
           ))}
+        </select>
+      </div>
+      <div className="top">
+        <label htmlFor="faena">Permanece faena</label>
+        <select
+          name="faena"
+          id="faena"
+          onChange={props.handleChange}
+          value={props.form.faena}
+        >
+          <option value="">Seleccione si permanece en faena</option>
+          <option value="Si">Si</option>
+          <option value="No">No</option>
         </select>
       </div>
       <article className="button-form top">
@@ -163,7 +186,7 @@ const Form = props => (
               <i className="fas fa-spinner fa-spin" />
             </article>
           ) : (
-            <input type="submit" value="Ingresar" />
+            <input type="submit" value="Actualizar" />
           )}
         </div>
       </article>

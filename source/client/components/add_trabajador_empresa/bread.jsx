@@ -12,7 +12,7 @@ const Bread = props => (
       </li>
       <li>
         <Link to="/dashboard/list_trabajador_empresa">
-          Nuevo trabajador empresa
+          Listado trabajador empresa
         </Link>
       </li>
       <li>

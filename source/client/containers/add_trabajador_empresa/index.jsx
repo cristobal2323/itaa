@@ -26,9 +26,10 @@ class AddTrabajadorEmpresa extends Component {
         cargo: "",
         turno: "",
         estructura: "",
-        tipo: "",
         capacitaciones: "",
-        horario: ""
+        horario: "",
+        antiguedad: "",
+        faena: ""
       }
     };
   }

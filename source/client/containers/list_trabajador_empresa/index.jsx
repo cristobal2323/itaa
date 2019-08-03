@@ -124,7 +124,6 @@ class ListTrabajadorEmpresa extends Component {
 
   render() {
     let container;
-    console.log(this.props);
     if (this.props.status === 401 || this.props.statusCount === 401) {
       container = (
         <section className="main">

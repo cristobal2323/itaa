@@ -110,7 +110,7 @@ const Form = props => (
           value={props.form.estructura}
         >
           <option value="">Seleccione estructura</option>
-          {props.data.cargo.map(item => (
+          {props.data.estructura.map(item => (
             <option key={item.id} value={item.nombre}>
               {item.nombre}
             </option>
@@ -118,29 +118,23 @@ const Form = props => (
         </select>
       </div>
       <div className="top">
-        <label htmlFor="Tipo">Tipo turno</label>
-        <select
-          name="tipo"
-          id="tipo"
-          onChange={props.handleChange}
-          value={props.form.tipo}
-        >
-          <option value="">Seleccione tipo turno</option>
-          {props.data.cargo.map(item => (
-            <option key={item.id} value={item.nombre}>
-              {item.nombre}
-            </option>
-          ))}
-        </select>
-      </div>
-      <div className="top">
-        <label htmlFor="numeroHijos">Capacitaciones</label>
+        <label htmlFor="capacitaciones">Capacitaciones</label>
         <input
           onChange={props.handleChange}
           type="number"
           name="capacitaciones"
           id="capacitaciones"
           value={props.form.capacitaciones}
+        />
+      </div>
+      <div className="top">
+        <label htmlFor="antiguedad">Antigüedad</label>
+        <input
+          onChange={props.handleChange}
+          type="number"
+          name="antiguedad"
+          id="antiguedad"
+          value={props.form.antiguedad}
         />
       </div>
       <div className="top">
@@ -153,15 +147,25 @@ const Form = props => (
         >
           <option value="">Seleccione horario</option>
           {props.data.horario.map(item => (
-            <option
-              key={item.id}
-              value={`${item.hora_inicio} - ${item.hora_inicio}`}
-            >
+            <option key={item.id} value={item.id}>
               {`${moment(item.hora_inicio).format(" HH:mm")} -  ${moment(
                 item.hora_itermino
               ).format(" HH:mm")}`}
             </option>
           ))}
+        </select>
+      </div>
+      <div className="top">
+        <label htmlFor="faena">Permanece faena</label>
+        <select
+          name="faena"
+          id="faena"
+          onChange={props.handleChange}
+          value={props.form.faena}
+        >
+          <option value="">Seleccione si permanece en faena</option>
+          <option value="Si">Si</option>
+          <option value="No">No</option>
         </select>
       </div>
       <article className="button-form top">

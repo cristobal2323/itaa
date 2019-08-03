@@ -28,7 +28,9 @@ class UpdateTrabajadorEmpresa extends Component {
         turno: "",
         estructura: "",
         capacitaciones: "",
-        horario: ""
+        horario: "",
+        antiguedad: "",
+        faena: ""
       }
     };
   }
@@ -55,6 +57,8 @@ class UpdateTrabajadorEmpresa extends Component {
         const turno = this.props.data.datos.tipo_turno_nombre;
         const capacitaciones = this.props.data.datos.capacitaciones;
         const horario = this.props.data.datos.horario_id;
+        const antiguedad = this.props.data.datos.antiguedad_empresa;
+        const faena = this.props.data.datos.permanece_faena_glosa;
         this.setState({
           form: {
             ...this.state.form,
@@ -66,7 +70,9 @@ class UpdateTrabajadorEmpresa extends Component {
             estructura,
             turno,
             capacitaciones,
-            horario
+            horario,
+            antiguedad,
+            faena
           }
         });
       }

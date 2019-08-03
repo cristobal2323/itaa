@@ -11,10 +11,12 @@ const Bread = props => (
         </Link>
       </li>
       <li>
-        <Link to="/dashboard/list_personal_data">Listado datos personales</Link>
+        <Link to="/dashboard/list_trabajador_empresa">
+          Listado trabajador empresa
+        </Link>
       </li>
       <li>
-        <a href="">Actualizar usuario</a>
+        <a href="">Actualizar trabajado empresa</a>
       </li>
     </ul>
   </div>
