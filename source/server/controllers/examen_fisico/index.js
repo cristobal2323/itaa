@@ -4,12 +4,12 @@ import Config from "../config";
 async function get(req, res) {
   const obj = JSON.parse(req.params.obj);
   console.log(
-    "Listado examen medico",
-    `${Config.api}/liexme?reg_inicio=${obj.pag.start}&reg_fin=${obj.pag.end}`
+    "List examen fisico",
+    `${Config.api}/liexfi?reg_inicio=${obj.pag.start}&reg_fin=${obj.pag.end}`
   );
   const response = await fetch(
     encodeURI(
-      `${Config.api}/liexme?reg_inicio=${obj.pag.start}&reg_fin=${obj.pag.end}`
+      `${Config.api}/liexfi?reg_inicio=${obj.pag.start}&reg_fin=${obj.pag.end}`
     ),
     {
       method: "GET",
@@ -29,13 +29,28 @@ async function getInfo(req, res) {
   const obj = JSON.parse(req.params.obj);
   let objs = {};
 
-  return res.status(200).send({});
+  /* Estado civil */
+  console.log("Listado de sueño examen fisico", `${Config.api}/licalsue`);
+  const response = await fetch(encodeURI(`${Config.api}/licalsue`), {
+    method: "GET",
+    headers: new Headers({
+      Authorization: `Bearer ${req.session.token}`,
+      accept: "application/json"
+    })
+  });
+
+  const data = await response.json();
+  const status = response.status;
+
+  objs.sueno = data.datos;
+
+  return res.status(status).send(objs);
 }
 
 async function getCount(req, res) {
   const obj = JSON.parse(req.params.obj);
-  console.log("List examen medico count", `${Config.api}/pagliexfi`);
-  const response = await fetch(encodeURI(`${Config.api}/pagliexfi`), {
+  console.log("List examen fisico count", `${Config.api}/pagliper`);
+  const response = await fetch(encodeURI(`${Config.api}/pagliper`), {
     method: "GET",
     headers: new Headers({
       Authorization: `Bearer ${req.session.token}`,
@@ -48,12 +63,12 @@ async function getCount(req, res) {
   return res.status(status).send(data);
 }
 
-async function getExamenMedico(req, res) {
+async function getExamenFisico(req, res) {
   const obj = JSON.parse(req.params.obj);
-  console.log("Get examen medico", `${Config.api}/exmexidu?id=${obj.id}`);
+  console.log("Get examen fisico", `${Config.api}/exfixidu?id=${obj.id}`);
   /* Img */
   const response = await fetch(
-    encodeURI(`${Config.api}/exmexidu?id=${obj.id}`),
+    encodeURI(`${Config.api}/exfixidu?id=${obj.id}`),
     {
       method: "GET",
       headers: new Headers({
@@ -72,5 +87,5 @@ module.exports = {
   get,
   getCount,
   getInfo,
-  getExamenMedico
+  getExamenFisico
 };

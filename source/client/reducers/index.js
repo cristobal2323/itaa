@@ -16,6 +16,10 @@ import add_trabajador_empresa from "./add_trabajador_empresa/";
 import update_trabajador_empresa from "./update_trabajador_empresa/";
 import list_examen_medico from "./list_examen_medico/";
 import add_examen_medico from "./add_examen_medico/";
+import update_examen_medico from "./update_examen_medico/";
+import list_examen_fisico from "./list_examen_fisico/";
+import add_examen_fisico from "./add_examen_fisico/";
+import update_examen_fisico from "./update_examen_fisico/";
 
 const reducer = combineReducers({
   login,
@@ -32,7 +36,11 @@ const reducer = combineReducers({
   add_trabajador_empresa,
   update_trabajador_empresa,
   list_examen_medico,
-  add_examen_medico
+  add_examen_medico,
+  update_examen_medico,
+  list_examen_fisico,
+  add_examen_fisico,
+  update_examen_fisico
 });
 
 export default reducer;

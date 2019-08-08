@@ -29,6 +29,11 @@ import UpdateTrabajadorEmpresa from "../update_trabajador_empresa/";
 
 import ListExamenMedico from "../list_examen_medico";
 import AddExamenMedico from "../add_examen_medico/";
+import UpdateExamenMedico from "../update_examen_medico/";
+
+import ListExamenFisico from "../list_examen_fisico";
+import AddExamenFisico from "../add_examen_fisico/";
+import UpdateExamenFisico from "../update_examen_fisico/";
 
 import Expired from "../expired/index";
 
@@ -46,6 +51,8 @@ class Dashboard extends Component {
     auth = auth === "true";
     if (auth) {
       await this.props.actions.fetchDashboardApi({ user });
+    } else {
+      this.handleLogOut();
     }
   }
 
@@ -124,6 +131,22 @@ class Dashboard extends Component {
               <Route
                 path={`${this.props.match.path}/add_examen_medico`}
                 component={AddExamenMedico}
+              />
+              <Route
+                path={`${this.props.match.path}/update_examen_medico/:id`}
+                component={UpdateExamenMedico}
+              />
+              <Route
+                path={`${this.props.match.path}/list_examen_fisico`}
+                component={ListExamenFisico}
+              />
+              <Route
+                path={`${this.props.match.path}/add_examen_fisico`}
+                component={AddExamenFisico}
+              />
+              <Route
+                path={`${this.props.match.path}/update_examen_fisico/:id`}
+                component={UpdateExamenFisico}
               />
             </main>
           );

@@ -207,6 +207,45 @@ class Nav extends Component {
                 </li>
               </ul>
             </li>
+            <li data-parent="f" data-menu="4">
+              <a
+                id="f"
+                onClick={this.handleNav}
+                role="button"
+                tabIndex={0}
+                data-menu="4"
+              >
+                <i className="fas fa-child" /> Examén fisico
+              </a>
+              <ul>
+                <li>
+                  <Link
+                    to="/dashboard/list_examen_fisico"
+                    className="active"
+                    onClick={this.handleSub}
+                    role="button"
+                    tabIndex={0}
+                    data-submenu="1"
+                    data-parent="f"
+                  >
+                    Listado Examén Fisico
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/dashboard/add_examen_fisico"
+                    className="active"
+                    onClick={this.handleSub}
+                    role="button"
+                    tabIndex={0}
+                    data-submenu="2"
+                    data-parent="f"
+                  >
+                    Nuevo Examén Medico
+                  </Link>
+                </li>
+              </ul>
+            </li>
             {permits.includes("admin") && (
               <li data-parent="b" data-menu="1">
                 <a

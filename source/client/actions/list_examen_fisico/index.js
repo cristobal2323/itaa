@@ -1,27 +1,27 @@
 import {
-  FETCH_LIST_EXAMEN_MEDICO_INIT,
-  FETCH_LIST_EXAMEN_MEDICO_SUCCESS,
-  FETCH_LIST_EXAMEN_MEDICO_FAILURE,
-  FETCH_LIST_EXAMEN_MEDICO_COUNT_INIT,
-  FETCH_LIST_EXAMEN_MEDICO_COUNT_SUCCESS,
-  FETCH_LIST_EXAMEN_MEDICO_COUNT_FAILURE,
-  DELETE_EXAMEN_MEDICO_INIT,
-  DELETE_EXAMEN_MEDICO_SUCCESS,
-  DELETE_EXAMEN_MEDICO_FAILURE,
-  RESET_LIST_EXAMEN_MEDICO,
-  RESET_MODAL_EXAMEN_MEDICO
+  FETCH_LIST_EXAMEN_FISICO_INIT,
+  FETCH_LIST_EXAMEN_FISICO_SUCCESS,
+  FETCH_LIST_EXAMEN_FISICO_FAILURE,
+  FETCH_LIST_EXAMEN_FISICO_COUNT_INIT,
+  FETCH_LIST_EXAMEN_FISICO_COUNT_SUCCESS,
+  FETCH_LIST_EXAMEN_FISICO_COUNT_FAILURE,
+  DELETE_EXAMEN_FISICO_INIT,
+  DELETE_EXAMEN_FISICO_SUCCESS,
+  DELETE_EXAMEN_FISICO_FAILURE,
+  RESET_LIST_EXAMEN_FISICO,
+  RESET_MODAL_EXAMEN_FISICO
 } from "./types";
 import API from "./api";
 
 /* Config setting */
-export function resetListExamenMedico() {
+export function resetListExamenFisico() {
   return {
-    type: RESET_LIST_EXAMEN_MEDICO
+    type: RESET_LIST_EXAMEN_FISICO
   };
 }
-export function resetModalExamenMedico() {
+export function resetModalExamenFisico() {
   return {
-    type: RESET_MODAL_EXAMEN_MEDICO
+    type: RESET_MODAL_EXAMEN_FISICO
   };
 }
 
@@ -29,24 +29,24 @@ export function resetModalExamenMedico() {
 
 function fetchApiSuccess(data) {
   return {
-    type: FETCH_LIST_EXAMEN_MEDICO_SUCCESS,
+    type: FETCH_LIST_EXAMEN_FISICO_SUCCESS,
     payload: data
   };
 }
 
 function fetchApiFailure(error) {
   return {
-    type: FETCH_LIST_EXAMEN_MEDICO_FAILURE
+    type: FETCH_LIST_EXAMEN_FISICO_FAILURE
   };
 }
 
 function fetchApiInit() {
   return {
-    type: FETCH_LIST_EXAMEN_MEDICO_INIT
+    type: FETCH_LIST_EXAMEN_FISICO_INIT
   };
 }
 
-export function fetchExamenMedicoApi(data) {
+export function fetchExamenFisicoApi(data) {
   return async dispatch => {
     dispatch(fetchApiInit());
     try {
@@ -62,24 +62,24 @@ export function fetchExamenMedicoApi(data) {
 
 function fetchApiCountSuccess(data) {
   return {
-    type: FETCH_LIST_EXAMEN_MEDICO_COUNT_SUCCESS,
+    type: FETCH_LIST_EXAMEN_FISICO_COUNT_SUCCESS,
     payload: data
   };
 }
 
 function fetchApiCountFailure(error) {
   return {
-    type: FETCH_LIST_EXAMEN_MEDICO_COUNT_FAILURE
+    type: FETCH_LIST_EXAMEN_FISICO_COUNT_FAILURE
   };
 }
 
 function fetchApiCountInit() {
   return {
-    type: FETCH_LIST_EXAMEN_MEDICO_COUNT_INIT
+    type: FETCH_LIST_EXAMEN_FISICO_COUNT_INIT
   };
 }
 
-export function fetchExamenMedicoCountApi(data) {
+export function fetchExamenFisicoCountApi(data) {
   return async dispatch => {
     dispatch(fetchApiCountInit());
     try {
@@ -95,25 +95,25 @@ export function fetchExamenMedicoCountApi(data) {
 
 function deleteApiSuccess(data) {
   return {
-    type: DELETE_EXAMEN_MEDICO_SUCCESS,
+    type: DELETE_EXAMEN_FISICO_SUCCESS,
     payload: data
   };
 }
 
 function deleteApiFailure(error) {
   return {
-    type: DELETE_EXAMEN_MEDICO_FAILURE,
+    type: DELETE_EXAMEN_FISICO_FAILURE,
     errordelete: error
   };
 }
 
 function deleteApiInit() {
   return {
-    type: DELETE_EXAMEN_MEDICO_INIT
+    type: DELETE_EXAMEN_FISICO_INIT
   };
 }
 
-export function deleteExamenMedicoApi(data) {
+export function deleteExamenFisicoApi(data) {
   return async dispatch => {
     dispatch(deleteApiInit());
     try {

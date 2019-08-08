@@ -10,9 +10,10 @@ const Table = props => (
         <tr>
           <th>Nombre</th>
           <th>Apellido</th>
-          <th className="center">Colesterol</th>
-          <th className="center">triglicerido</th>
-          <th className="center">glicemia</th>
+          <th className="center">Peso</th>
+          <th className="center">Talla</th>
+          <th className="center">Imc</th>
+          <th className="center">Temperatura</th>
           <th className="th100 center">Acciones</th>
         </tr>
       </thead>
@@ -22,12 +23,13 @@ const Table = props => (
             <tr key={item.id}>
               <td>{item.nombres}</td>
               <td>{item.apellido_paterno}</td>
-              <td className="center">{item.colesterol_total}</td>
-              <td className="center">{item.triglicerido}</td>
-              <td className="center">{item.glicemia}</td>
+              <td className="center">{item.peso}</td>
+              <td className="center">{item.talla}</td>
+              <td className="center">{item.imc}</td>
+              <td className="center">{item.temperatura}</td>
               <td>
                 <div className="icon-table">
-                  <Link to={`update_examen_medico/${item.user_id}`}>
+                  <Link to={`update_examen_fisico/${item.user_id}`}>
                     <i className="fas fa-user-edit" />
                   </Link>
                   <a
