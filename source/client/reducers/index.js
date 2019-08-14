@@ -20,6 +20,8 @@ import update_examen_medico from "./update_examen_medico/";
 import list_examen_fisico from "./list_examen_fisico/";
 import add_examen_fisico from "./add_examen_fisico/";
 import update_examen_fisico from "./update_examen_fisico/";
+import list_oximetria from "./list_oximetria/";
+import add_oximetria from "./add_oximetria/";
 
 const reducer = combineReducers({
   login,
@@ -40,7 +42,9 @@ const reducer = combineReducers({
   update_examen_medico,
   list_examen_fisico,
   add_examen_fisico,
-  update_examen_fisico
+  update_examen_fisico,
+  list_oximetria,
+  add_oximetria
 });
 
 export default reducer;

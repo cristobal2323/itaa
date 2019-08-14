@@ -35,6 +35,9 @@ import ListExamenFisico from "../list_examen_fisico";
 import AddExamenFisico from "../add_examen_fisico/";
 import UpdateExamenFisico from "../update_examen_fisico/";
 
+import ListOximetria from "../list_oximetria";
+import AddOximetria from "../add_oximetria/";
+
 import Expired from "../expired/index";
 
 class Dashboard extends Component {
@@ -147,6 +150,14 @@ class Dashboard extends Component {
               <Route
                 path={`${this.props.match.path}/update_examen_fisico/:id`}
                 component={UpdateExamenFisico}
+              />
+              <Route
+                path={`${this.props.match.path}/list_oximetria`}
+                component={ListOximetria}
+              />
+              <Route
+                path={`${this.props.match.path}/add_oximetria`}
+                component={AddOximetria}
               />
             </main>
           );

@@ -32,6 +32,9 @@ import examenMedicoRoute from "./routes/examen_medico/";
 /* examenMedico */
 import examenFisicoRoute from "./routes/examen_fisico/";
 
+/* oximetria */
+import oximetriaRoute from "./routes/oximetria/";
+
 /* Login */
 import loginRoute from "./routes/login/";
 import localStoreRoute from "./routes/localStore/";
@@ -53,6 +56,12 @@ app.use(
     keys: ["llave-1"]
   })
 );
+
+/* Oximetria*/
+app.use("/api/oximetria", oximetriaRoute.oximetria);
+app.use("/api/oximeCount", oximetriaRoute.oximetriaCount);
+app.use("/api/oximeInfo", oximetriaRoute.oximetriaInfo);
+app.use("/api/getoximetria", oximetriaRoute.getOximetria);
 
 /* Examen fisico*/
 app.use("/api/examenFisico", examenFisicoRoute.examenFisico);

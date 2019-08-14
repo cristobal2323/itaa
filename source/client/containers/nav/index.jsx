@@ -246,6 +246,45 @@ class Nav extends Component {
                 </li>
               </ul>
             </li>
+            <li data-parent="g" data-menu="6">
+              <a
+                id="g"
+                onClick={this.handleNav}
+                role="button"
+                tabIndex={0}
+                data-menu="6"
+              >
+                <i className="fas fa-vial" /> Oximetria
+              </a>
+              <ul>
+                <li>
+                  <Link
+                    to="/dashboard/list_oximetria"
+                    className="active"
+                    onClick={this.handleSub}
+                    role="button"
+                    tabIndex={0}
+                    data-submenu="1"
+                    data-parent="g"
+                  >
+                    Listado Oximetria
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/dashboard/add_oximetria"
+                    className="active"
+                    onClick={this.handleSub}
+                    role="button"
+                    tabIndex={0}
+                    data-submenu="2"
+                    data-parent="g"
+                  >
+                    Nuevo Oximetria
+                  </Link>
+                </li>
+              </ul>
+            </li>
             {permits.includes("admin") && (
               <li data-parent="b" data-menu="1">
                 <a
