@@ -10,10 +10,10 @@ const Table = props => (
         <tr>
           <th>Nombre</th>
           <th>Apellido</th>
-          <th className="center">Desaturación promedio</th>
-          <th className="center">spo2 media</th>
-          <th className="center">Desaturación profunda</th>
-          <th className="center">Suma desaturación</th>
+          <th className="center">Latencia sueño</th>
+          <th className="center">Porcentaje sueño rem</th>
+          <th className="center">Total sueño</th>
+          <th className="center">Frecuencia cardiaca promedio</th>
           <th className="th100 center">Acciones</th>
         </tr>
       </thead>
@@ -23,10 +23,10 @@ const Table = props => (
             <tr key={item.id}>
               <td>{item.nombres}</td>
               <td>{item.apellido_paterno}</td>
-              <td className="center">{item.desaturacion_promedio}</td>
-              <td className="center">{item.spo2_media}</td>
-              <td className="center">{item.desaturacion_mas_profunda}</td>
-              <td className="center">{item.suma_desaturaciones}</td>
+              <td className="center">{item.latencia_sueno}</td>
+              <td className="center">{item.porcentaje_sueno_rem}</td>
+              <td className="center">{item.tiempo_total_sueno}</td>
+              <td className="center">{item.frecuencia_cardiaca_promedio}</td>
               <td>
                 <div className="icon-table">
                   <Link to={`update_oximetria/${item.user_id}`}>

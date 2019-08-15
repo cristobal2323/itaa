@@ -285,6 +285,45 @@ class Nav extends Component {
                 </li>
               </ul>
             </li>
+            <li data-parent="h" data-menu="6">
+              <a
+                id="h"
+                onClick={this.handleNav}
+                role="button"
+                tabIndex={0}
+                data-menu="6"
+              >
+                <i className="fas fa-bed" /> Polisomnografia
+              </a>
+              <ul>
+                <li>
+                  <Link
+                    to="/dashboard/list_polisomnografia"
+                    className="active"
+                    onClick={this.handleSub}
+                    role="button"
+                    tabIndex={0}
+                    data-submenu="1"
+                    data-parent="h"
+                  >
+                    Listado Polisomnografia
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/dashboard/add_polisomnografia"
+                    className="active"
+                    onClick={this.handleSub}
+                    role="button"
+                    tabIndex={0}
+                    data-submenu="2"
+                    data-parent="h"
+                  >
+                    Polisomnografia
+                  </Link>
+                </li>
+              </ul>
+            </li>
             {permits.includes("admin") && (
               <li data-parent="b" data-menu="1">
                 <a

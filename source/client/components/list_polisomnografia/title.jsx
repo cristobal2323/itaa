@@ -7,10 +7,10 @@ import Date from "../../containers/common/date";
 const Title = props => (
   <div className="title-table">
     <div>
-      <h3>Oximetría</h3>
+      <h3>Polisomnografia</h3>
     </div>
     <div>
-      <Link to="/dashboard/add_oximetria">Nueva Oximetría</Link>
+      <Link to="/dashboard/add_polisomnografia">Nueva polisomnografia</Link>
     </div>
   </div>
 );

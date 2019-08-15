@@ -22,7 +22,8 @@ import add_examen_fisico from "./add_examen_fisico/";
 import update_examen_fisico from "./update_examen_fisico/";
 import list_oximetria from "./list_oximetria/";
 import add_oximetria from "./add_oximetria/";
-
+import update_oximetria from "./update_oximetria/";
+import list_polisomnografia from "./list_polisomnografia/";
 const reducer = combineReducers({
   login,
   dashboard,
@@ -44,7 +45,9 @@ const reducer = combineReducers({
   add_examen_fisico,
   update_examen_fisico,
   list_oximetria,
-  add_oximetria
+  add_oximetria,
+  update_oximetria,
+  list_polisomnografia
 });
 
 export default reducer;

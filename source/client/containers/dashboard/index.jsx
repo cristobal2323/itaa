@@ -37,6 +37,9 @@ import UpdateExamenFisico from "../update_examen_fisico/";
 
 import ListOximetria from "../list_oximetria";
 import AddOximetria from "../add_oximetria/";
+import UpdateOximetria from "../update_oximetria/";
+
+import ListPolisomnografia from "../list_polisomnografia";
 
 import Expired from "../expired/index";
 
@@ -158,6 +161,14 @@ class Dashboard extends Component {
               <Route
                 path={`${this.props.match.path}/add_oximetria`}
                 component={AddOximetria}
+              />
+              <Route
+                path={`${this.props.match.path}/update_oximetria/:id`}
+                component={UpdateOximetria}
+              />
+              <Route
+                path={`${this.props.match.path}/list_polisomnografia`}
+                component={ListPolisomnografia}
               />
             </main>
           );

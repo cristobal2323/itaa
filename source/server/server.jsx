@@ -35,6 +35,9 @@ import examenFisicoRoute from "./routes/examen_fisico/";
 /* oximetria */
 import oximetriaRoute from "./routes/oximetria/";
 
+/* Polisomnografia */
+import polisomnografiaRoute from "./routes/polisomnografia/";
+
 /* Login */
 import loginRoute from "./routes/login/";
 import localStoreRoute from "./routes/localStore/";
@@ -56,6 +59,11 @@ app.use(
     keys: ["llave-1"]
   })
 );
+/* Polisomnografia */
+app.use("/api/poli", polisomnografiaRoute.polisomnografia);
+app.use("/api/poliCount", polisomnografiaRoute.polisomnografiaCount);
+app.use("/api/poliInfo", polisomnografiaRoute.polisomnografiaInfo);
+app.use("/api/getpoli", polisomnografiaRoute.getPolisomnografia);
 
 /* Oximetria*/
 app.use("/api/oximetria", oximetriaRoute.oximetria);
