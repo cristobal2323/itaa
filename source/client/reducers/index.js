@@ -24,6 +24,8 @@ import list_oximetria from "./list_oximetria/";
 import add_oximetria from "./add_oximetria/";
 import update_oximetria from "./update_oximetria/";
 import list_polisomnografia from "./list_polisomnografia/";
+import add_polisomnografia from "./add_polisomnografia/";
+import update_polisomnografia from "./update_polisomnografia/";
 const reducer = combineReducers({
   login,
   dashboard,
@@ -47,7 +49,9 @@ const reducer = combineReducers({
   list_oximetria,
   add_oximetria,
   update_oximetria,
-  list_polisomnografia
+  list_polisomnografia,
+  add_polisomnografia,
+  update_polisomnografia
 });
 
 export default reducer;

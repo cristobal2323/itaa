@@ -16,7 +16,6 @@ const API = {
       };
     },
     async getCount(obj) {
-      console.log(obj);
       let response = await fetch(
         `/api/poliCount/${encodeURIComponent(JSON.stringify(obj))}`
       );

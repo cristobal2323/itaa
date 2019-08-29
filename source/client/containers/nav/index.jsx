@@ -319,7 +319,7 @@ class Nav extends Component {
                     data-submenu="2"
                     data-parent="h"
                   >
-                    Polisomnografia
+                    Nuevo Polisomnografia
                   </Link>
                 </li>
               </ul>

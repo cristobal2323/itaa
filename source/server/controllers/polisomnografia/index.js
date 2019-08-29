@@ -33,8 +33,8 @@ async function getInfo(req, res) {
 
 async function getCount(req, res) {
   const obj = JSON.parse(req.params.obj);
-  console.log("List polisomnografia count", `${Config.api}//paglipsg`);
-  const response = await fetch(encodeURI(`${Config.api}//paglipsg`), {
+  console.log("List polisomnografia count", `${Config.api}/paglipsg`);
+  const response = await fetch(encodeURI(`${Config.api}/paglipsg`), {
     method: "GET",
     headers: new Headers({
       Authorization: `Bearer ${req.session.token}`,
@@ -49,10 +49,10 @@ async function getCount(req, res) {
 
 async function getPolisomnografia(req, res) {
   const obj = JSON.parse(req.params.obj);
-  console.log("Get polisomnografia", `${Config.api}/oxixidu?id=${obj.id}`);
+  console.log("Get polisomnografia", `${Config.api}/psgxidu?id=${obj.id}`);
   /* Img */
   const response = await fetch(
-    encodeURI(`${Config.api}/oxixidu?id=${obj.id}`),
+    encodeURI(`${Config.api}/psgxidu?id=${obj.id}`),
     {
       method: "GET",
       headers: new Headers({

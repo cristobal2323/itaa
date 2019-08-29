@@ -29,7 +29,7 @@ const Table = props => (
               <td className="center">{item.frecuencia_cardiaca_promedio}</td>
               <td>
                 <div className="icon-table">
-                  <Link to={`update_oximetria/${item.user_id}`}>
+                  <Link to={`update_polisomnografia/${item.user_id}`}>
                     <i className="fas fa-user-edit" />
                   </Link>
                   <a
