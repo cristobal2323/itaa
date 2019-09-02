@@ -59,16 +59,6 @@ class AddOximetria extends Component {
         [e.target.name]: e.target.value
       }
     });
-    if (e.target.name == "region") {
-      await this.props.actions.fetchOximetriaInfoApi({
-        region: e.target.value
-      });
-    } else if (e.target.name == "provincia") {
-      await this.props.actions.fetchOximetriaInfoApi({
-        region: document.getElementById("region").value,
-        provincia: e.target.value
-      });
-    }
   };
 
   render() {

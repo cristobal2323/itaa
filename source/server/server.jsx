@@ -38,6 +38,9 @@ import oximetriaRoute from "./routes/oximetria/";
 /* Polisomnografia */
 import polisomnografiaRoute from "./routes/polisomnografia/";
 
+/* Surveys epworth */
+import surveysEpworthRoute from "./routes/surveys_epworth";
+
 /* Login */
 import loginRoute from "./routes/login/";
 import localStoreRoute from "./routes/localStore/";
@@ -59,6 +62,9 @@ app.use(
     keys: ["llave-1"]
   })
 );
+/* Epworth */
+app.use("/api/epworth", surveysEpworthRoute.surveysEpworth);
+
 /* Polisomnografia */
 app.use("/api/poli", polisomnografiaRoute.polisomnografia);
 app.use("/api/poliCount", polisomnografiaRoute.polisomnografiaCount);

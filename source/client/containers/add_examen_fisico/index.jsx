@@ -68,16 +68,6 @@ class AddExamenFisico extends Component {
         [e.target.name]: e.target.value
       }
     });
-    if (e.target.name == "region") {
-      await this.props.actions.fetchExamenFisicoInfoApi({
-        region: e.target.value
-      });
-    } else if (e.target.name == "provincia") {
-      await this.props.actions.fetchExamenFisicoInfoApi({
-        region: document.getElementById("region").value,
-        provincia: e.target.value
-      });
-    }
   };
 
   render() {

@@ -90,6 +90,45 @@ class Nav extends Component {
                 <i className="fas fa-eye" /> Home
               </Link>
             </li>
+            <li data-parent="i" data-menu="7">
+              <a
+                id="i"
+                onClick={this.handleNav}
+                role="button"
+                tabIndex={0}
+                data-menu="7"
+              >
+                <i className="fas fa-smile" /> Encuestas
+              </a>
+              <ul>
+                <li>
+                  <Link
+                    to="/dashboard/epworth"
+                    className="active"
+                    onClick={this.handleSub}
+                    role="button"
+                    tabIndex={0}
+                    data-submenu="1"
+                    data-parent="i"
+                  >
+                    Epworth
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/dashboard/pittsburgh"
+                    className="active"
+                    onClick={this.handleSub}
+                    role="button"
+                    tabIndex={0}
+                    data-submenu="2"
+                    data-parent="i"
+                  >
+                    Pittsburgh
+                  </Link>
+                </li>
+              </ul>
+            </li>
             <li data-parent="c" data-menu="2">
               <a
                 id="c"

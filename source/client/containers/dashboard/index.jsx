@@ -43,6 +43,8 @@ import ListPolisomnografia from "../list_polisomnografia";
 import AddPolisomnografia from "../add_polisomnografia";
 import UpdatePolisomnografia from "../update_polisomnografia";
 
+import SurveysEpworth from "../surveys_epworth";
+
 import Expired from "../expired/index";
 
 class Dashboard extends Component {
@@ -179,6 +181,10 @@ class Dashboard extends Component {
               <Route
                 path={`${this.props.match.path}/update_polisomnografia/:id`}
                 component={UpdatePolisomnografia}
+              />
+              <Route
+                path={`${this.props.match.path}/epworth`}
+                component={SurveysEpworth}
               />
             </main>
           );

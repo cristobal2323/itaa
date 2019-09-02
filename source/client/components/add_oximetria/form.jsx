@@ -9,7 +9,7 @@ const Form = props => (
   <form onSubmit={props.handleSubmit}>
     <section className="form">
       <article className="title-form">
-        <h2>Datos eoximetría</h2>
+        <h2>Datos oximetría</h2>
       </article>
       <div>
         <label htmlFor="nombres">Nombres</label>

@@ -549,7 +549,21 @@ nav {
       color: $header;
     }
   }
-  div {
+  input[type="submit"] {
+    @include reset-appearance;
+    border: solid $header 1px;
+    padding: 0.5em 1em;
+    font-size: 14px;
+    background: $header;
+    border-radius: 20px;
+    color: $white;
+    width: 200px;
+    &:hover {
+      background: $white;
+      color: $header;
+    }
+  }
+  > div {
     width: 49%;
     label {
       color: $gris_dark_text;
@@ -557,6 +571,10 @@ nav {
       margin-bottom: 5px;
       display: block;
       width: 100%;
+      &.flex {
+        display: flex;
+        align-items: center;
+      }
     }
     input {
       @include reset-appearance;
@@ -582,20 +600,6 @@ nav {
       border: solid 1px $gris;
       &:hover {
         border: solid 1px #929292;
-      }
-    }
-    input[type="submit"] {
-      @include reset-appearance;
-      border: solid $header 1px;
-      padding: 0.5em 1em;
-      font-size: 14px;
-      background: $header;
-      border-radius: 20px;
-      color: $white;
-      width: 200px;
-      &:hover {
-        background: $white;
-        color: $header;
       }
     }
   }
