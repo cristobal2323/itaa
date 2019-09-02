@@ -16,7 +16,6 @@ const API = {
       };
     },
     async handleSubmit(obj) {
-      console.log("saveSurveysEpworthApi");
       const response = await fetch(`/api/epworth/`, {
         method: "POST",
         headers: new Headers({

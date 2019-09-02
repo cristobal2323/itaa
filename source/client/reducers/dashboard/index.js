@@ -17,6 +17,10 @@ export default function dashboard(state = initialState, action) {
       };
     case FETCH_DASHBOARD_SUCCESS:
       saveLocalState({
+        key: "id_user",
+        value: action.payload.data.datos.id
+      });
+      saveLocalState({
         key: "permits",
         value: action.payload.data.datos.permits
       });

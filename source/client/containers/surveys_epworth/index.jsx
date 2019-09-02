@@ -9,6 +9,10 @@ import Title from "../../components/surveys_epworth/title";
 import Spiner from "../../components/surveys_epworth/spiner";
 import Form from "../../components/surveys_epworth/form";
 import Modal from "../../components/surveys_epworth/modal";
+
+/* Local store */
+import { localStoreFN } from "../../store/localStorage";
+
 /* Actions */
 import * as surveysEpworthActions from "../../actions/surveys_epworth/index";
 
@@ -18,6 +22,7 @@ class SurveysEpworth extends Component {
     this.state = {
       modal: false,
       form: {
+        id_user: localStoreFN().getItem("id_user"),
         sentado_y_leyendo: "",
         viendo_la_tv: "",
         sentado_inactivo: "",
@@ -57,6 +62,7 @@ class SurveysEpworth extends Component {
         if (this.props.statusSave === 200) {
           this.setState({
             form: {
+              id_user: localStoreFN().getItem("id_user"),
               sentado_y_leyendo: "",
               viendo_la_tv: "",
               sentado_inactivo: "",
@@ -80,7 +86,6 @@ class SurveysEpworth extends Component {
 
   /* Funcion handle change */
   handleChange = async e => {
-    console.log(e.target.name);
     this.setState({
       form: {
         ...this.state.form,

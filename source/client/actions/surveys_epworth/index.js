@@ -78,7 +78,6 @@ function saveApiInit() {
 }
 
 export function saveSurveysEpworthApi(data) {
-  console.log("saveSurveysEpworthApi");
   return async dispatch => {
     dispatch(saveApiInit());
     try {

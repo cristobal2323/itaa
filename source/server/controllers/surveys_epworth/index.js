@@ -18,18 +18,35 @@ async function get(req, res) {
 }
 
 async function add(req, res) {
+  console.log(req.body);
   try {
     console.log(
       "add user",
-      `${
-        Config.api
-      }/insepworth?user_id=10&sentado_y_leyendo=1&viendo_la_tv=1&sentado_inactivo=2&como_copiloto=3&recostado_media_tarde=0&sentado_y_conversando=1&sentado_despues_comida=2&en_auto_cuando_para=1`
+      `${Config.api}/insepworth?user_id=${req.body.id_user}&sentado_y_leyendo=${
+        req.body.sentado_y_leyendo
+      }&viendo_la_tv=${req.body.viendo_la_tv}&sentado_inactivo=${
+        req.body.sentado_inactivo
+      }&como_copiloto=${req.body.como_copiloto}&recostado_media_tarde=${
+        req.body.recostado_media_tarde
+      }&sentado_y_conversando=${
+        req.body.sentado_y_conversando
+      }&sentado_despues_comida=${
+        req.body.sentado_despues_comida
+      }&en_auto_cuando_para=${req.body.en_auto_cuando_para}`
     );
 
     const response = await fetch(
-      `${
-        Config.api
-      }/insepworth?user_id=10&sentado_y_leyendo=1&viendo_la_tv=1&sentado_inactivo=2&como_copiloto=3&recostado_media_tarde=0&sentado_y_conversando=1&sentado_despues_comida=2&en_auto_cuando_para=1`,
+      `${Config.api}/insepworth?user_id=${req.body.id_user}&sentado_y_leyendo=${
+        req.body.sentado_y_leyendo
+      }&viendo_la_tv=${req.body.viendo_la_tv}&sentado_inactivo=${
+        req.body.sentado_inactivo
+      }&como_copiloto=${req.body.como_copiloto}&recostado_media_tarde=${
+        req.body.recostado_media_tarde
+      }&sentado_y_conversando=${
+        req.body.sentado_y_conversando
+      }&sentado_despues_comida=${
+        req.body.sentado_despues_comida
+      }&en_auto_cuando_para=${req.body.en_auto_cuando_para}`,
       {
         method: "POST",
         headers: new Headers({
