@@ -2,6 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 import moment from "moment";
 
+/* Componentes */
+import Personsautocomplete from "../auto_complete/persons";
+
 /* Function */
 import Fucform from "../../actions/_function/form.js";
 
@@ -13,12 +16,12 @@ const Form = props => (
       </article>
       <div>
         <label htmlFor="nombres">Nombres</label>
-        <input
-          onChange={props.handleChange}
-          type="text"
-          name="nombres"
-          id="nombres"
+        <Personsautocomplete
+          handleChangeAutoComplete={props.handleChangeAutoComplete}
           value={props.form.nombres}
+          id_user={props.form.id_user}
+          name="nombres"
+          filter={props.persons.datos.lista}
         />
       </div>
       <div>

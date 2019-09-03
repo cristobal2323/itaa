@@ -14,7 +14,7 @@ const Paginator = props => {
       i <= props.paginator.blockEnd &&
       i <= props.data.datos.paginador.total
     ) {
-      if (i < total)
+      if (i <= total)
         buttons.push(
           <div
             className={props.paginator.main == i ? "active" : ""}

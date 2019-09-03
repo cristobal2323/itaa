@@ -7,9 +7,10 @@ const oximetriaInfo = express.Router();
 const getOximetria = express.Router();
 
 oximetria.get("/:obj", oximetriaCtrl.get);
+oximetria.post("/", oximetriaCtrl.add);
+
 oximetriaCount.get("/:obj", oximetriaCtrl.getCount);
 oximetriaInfo.get("/:obj", oximetriaCtrl.getInfo);
-
 getOximetria.get("/:obj", oximetriaCtrl.getOximetria);
 
 export default {

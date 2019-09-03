@@ -82,10 +82,11 @@ class ListOximetria extends Component {
   /* paginato */
   handlePaginator = async event => {
     const num = event.currentTarget.dataset.num;
+
     let valorPaginator = this.props.dataCount.datos.paginador.regxpagina * num;
 
-    let start = valorPaginator + 1;
-    let end = valorPaginator + 30;
+    let start = valorPaginator + 1 - 30;
+    let end = valorPaginator;
 
     let blockStart = this.state.paginator.blockStart;
     let blockEnd = this.state.paginator.blockEnd;
