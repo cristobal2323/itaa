@@ -2,11 +2,19 @@ import {
   FETCH_HOME_INIT,
   FETCH_HOME_SUCCESS,
   FETCH_HOME_FAILURE,
-  FETCH_HOME_GRAPH_INIT,
-  FETCH_HOME_GRAPH_SUCCESS,
-  FETCH_HOME_GRAPH_FAILURE
+  RESET_HOME,
+  FETCH_HOME_COUNT_INIT,
+  FETCH_HOME_COUNT_SUCCESS,
+  FETCH_HOME_COUNT_FAILURE
 } from "./types";
 import API from "./api";
+
+/* Config setting */
+export function resetHome() {
+  return {
+    type: RESET_HOME
+  };
+}
 
 /* Home */
 
@@ -42,36 +50,35 @@ export function fetchHomeApi(data) {
   };
 }
 
-/* Confing */
+/* Fetch Count */
 
-function fetchApiGraphSuccess(data) {
+function fetchApiCountSuccess(data) {
   return {
-    type: FETCH_HOME_GRAPH_SUCCESS,
+    type: FETCH_HOME_COUNT_SUCCESS,
     payload: data
   };
 }
 
-function fetchApiGraphFailure(error) {
+function fetchApiCountFailure(error) {
   return {
-    type: FETCH_HOME_GRAPH_FAILURE,
-    error
+    type: FETCH_HOME_COUNT_FAILURE
   };
 }
 
-function fetchApiGraphInit() {
+function fetchApiCountInit() {
   return {
-    type: FETCH_HOME_GRAPH_INIT
+    type: FETCH_HOME_COUNT_INIT
   };
 }
 
-export function fetchHomeGraphApi(data) {
+export function fetchHomeCountApi(data) {
   return async dispatch => {
-    dispatch(fetchApiGraphInit());
+    dispatch(fetchApiCountInit());
     try {
-      const resp = await API.data.getGraph(data);
-      return dispatch(fetchApiGraphSuccess(resp));
+      const resp = await API.data.getCount(data);
+      return dispatch(fetchApiCountSuccess(resp));
     } catch (error) {
-      return dispatch(fetchApiGraphFailure(error));
+      return dispatch(fetchApiCountFailure(error));
     }
   };
 }

@@ -3,32 +3,18 @@ import Config from "../config/";
 
 async function get(req, res) {
   const obj = JSON.parse(req.params.obj);
-
-  /* Img */
-  const response = await fetch(encodeURI(`${Config.api}/companias`), {
-    method: "GET",
-    headers: new Headers({
-      Authorization: `Bearer ${req.session.token}`,
-      accept: "application/json"
-    })
-  });
-
-  const data = await response.json();
-  const status = response.status;
-  return res.status(status).send(data);
-}
-
-async function getGraph(req, res) {
-  const obj = JSON.parse(req.params.obj);
-
-  let id = "21";
-  if (obj.id) {
-    id = obj.id;
-  }
-  /* Img */
-  console.log(`${Config.api}/valores?id=${id}&fecha_tope=null`);
+  /* Dashborar Main  */
+  console.log(
+    `Dashboard Persons ${Config.api}/dsper?reg_inicio=${
+      obj.pag.start
+    }&reg_fin=${obj.pag.end}&ver_detalle=false`
+  );
   const response = await fetch(
-    encodeURI(`${Config.api}/valores?id=${id}&fecha_tope=null`),
+    encodeURI(
+      `${Config.api}/dsper?reg_inicio=${obj.pag.start}&reg_fin=${
+        obj.pag.end
+      }&ver_detalle=false`
+    ),
     {
       method: "GET",
       headers: new Headers({
@@ -43,7 +29,23 @@ async function getGraph(req, res) {
   return res.status(status).send(data);
 }
 
+async function getCount(req, res) {
+  const obj = JSON.parse(req.params.obj);
+  console.log("Dashboard perrsons count", `${Config.api}/pagdper`);
+  const response = await fetch(encodeURI(`${Config.api}/pagdper`), {
+    method: "GET",
+    headers: new Headers({
+      Authorization: `Bearer ${req.session.token}`,
+      accept: "application/json"
+    })
+  });
+
+  const data = await response.json();
+  const status = response.status;
+  return res.status(status).send(data);
+}
+
 module.exports = {
   get,
-  getGraph
+  getCount
 };

@@ -19,7 +19,7 @@ const Table = props => (
             <td>{item.id}</td>
             <td>{item.userName}</td>
             <td>
-              <ul>
+              <ul className="list--bubble">
                 {item.permissions.map((permit, i) => (
                   <li key={i}>{permit}</li>
                 ))}

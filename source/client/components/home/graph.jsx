@@ -1,71 +1,50 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import { connect } from "react-redux";
+import moment from "moment";
 
-let Plot;
+import { PieChart, Pie, Cell, Tooltip } from "recharts";
 
-export default class Graph extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
+const RADIAN = Math.PI / 180;
+
+const dataArr = (valores, clasification) => {
+  const arr = [];
+  switch (clasification) {
+    case "LEVE":
+      arr.push({ name: "Leve", value: valores.leve, color: "#00C49F" });
+      break;
+    case "MODERADO":
+      arr.push({ name: "Moderado", value: valores.moderado, color: "#FFBB28" });
+      break;
+    case "ALTO":
+      arr.push({ name: "Alto", value: valores.alto, color: "#ff4242" });
+      break;
+    case "SEVERO":
+      arr.push({ name: "Alto", value: valores.alto, color: "#ff4242" });
+      break;
   }
 
-  componentDidMount() {
-    Plot = require("react-plotly.js");
-    this.setState({ showMap: true });
-  }
+  return arr;
+};
 
-  render() {
-    if (this.state.showMap) {
-      if (!this.props.loading) {
-        const fecha = [];
-        const real = [];
-        const prediccion = [];
-        console.log(this.props.data);
-        this.props.data.datos.valores.forEach(item => {
-          fecha.push(item.fecha);
-          real.push(item.valor_cierre_real);
-          prediccion.push(item.valor_cierre_prediccion);
-        });
+const SimplePieChart = props => {
+  let data = [];
+  data = dataArr(props.data, props.clasification);
+  console.log(props.data, data);
+  return (
+    <PieChart width={50} height={50}>
+      <Pie
+        dataKey="value"
+        data={data}
+        labelLine={false}
+        outerRadius={20}
+        fill="#8884d8"
+      >
+        {data.map((entry, index) => (
+          <Cell key={index} fill={entry.color} />
+        ))}
+      </Pie>
+    </PieChart>
+  );
+};
 
-        return (
-          <div className="container-graph-home">
-            <Plot
-              data={[
-                {
-                  x: fecha,
-                  y: real,
-                  name: "Real",
-                  type: "scatter",
-                  mode: "lines+points",
-                  marker: { color: "red" }
-                },
-                {
-                  x: fecha,
-                  y: prediccion,
-                  name: "Predicción",
-                  type: "scatter",
-                  mode: "lines+points",
-                  marker: { color: "orange" }
-                }
-              ]}
-              layout={{
-                title: "Valores",
-                autosize: true
-              }}
-              useResizeHandler
-              style={{ width: "100%", height: "100%" }}
-            />
-          </div>
-        );
-      }
-    }
-    return <div className="container-graph-home" />;
-  }
-}
-
-const mapStateToProps = state => ({});
-
-const mapDispatchToProps = dispatch => ({});
-
-Graph.propTypes = {};
+export default SimplePieChart;

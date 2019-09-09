@@ -1,17 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 import Date from "../../containers/common/date";
 
 const Title = props => (
-  <div className="title">
+  <div className="title-table">
     <div>
-      <h1>Listado de acciones</h1>
+      <h3>Dashboard Personas</h3>
     </div>
-    <div className="margin-right topx4">
-      <h3> Fecha </h3>
-      <Date id="date" />
-    </div>
+    <div />
   </div>
 );
 

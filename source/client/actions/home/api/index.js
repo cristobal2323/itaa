@@ -15,9 +15,9 @@ const API = {
         status
       };
     },
-    async getGraph(obj) {
+    async getCount(obj) {
       let response = await fetch(
-        `/api/homeGraph/${encodeURIComponent(JSON.stringify(obj))}`
+        `/api/homeCount/${encodeURIComponent(JSON.stringify(obj))}`
       );
 
       const status = response.status;

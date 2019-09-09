@@ -2,12 +2,12 @@ import express from "express";
 import homeCtrl from "../../controllers/home/";
 
 const home = express.Router();
-const homeGraph = express.Router();
+const homeCount = express.Router();
 
 home.get("/:obj", homeCtrl.get);
-homeGraph.get("/:obj", homeCtrl.getGraph);
+homeCount.get("/:obj", homeCtrl.getCount);
 
 export default {
   home,
-  homeGraph
+  homeCount
 };

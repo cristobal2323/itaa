@@ -3,9 +3,9 @@ import {
   FETCH_HOME_INIT,
   FETCH_HOME_SUCCESS,
   FETCH_HOME_FAILURE,
-  FETCH_HOME_GRAPH_INIT,
-  FETCH_HOME_GRAPH_SUCCESS,
-  FETCH_HOME_GRAPH_FAILURE
+  FETCH_HOME_COUNT_INIT,
+  FETCH_HOME_COUNT_SUCCESS,
+  FETCH_HOME_COUNT_FAILURE
 } from "../../actions/home/types";
 
 export default function home(state = initialState, action) {
@@ -30,24 +30,24 @@ export default function home(state = initialState, action) {
         loading: false,
         status: 501
       };
-    case FETCH_HOME_GRAPH_INIT:
+    case FETCH_HOME_COUNT_INIT:
       return {
         ...state,
-        loadingGraph: true
+        loadingCount: true
       };
-    case FETCH_HOME_GRAPH_SUCCESS:
+    case FETCH_HOME_COUNT_SUCCESS:
       return {
         ...state,
-        dataGraph: action.payload.data,
-        loadingGraph: false,
-        statusGraph: action.payload.status
+        dataCount: action.payload.data,
+        loadingCount: false,
+        statusCount: action.payload.status
       };
-    case FETCH_HOME_GRAPH_FAILURE:
+    case FETCH_HOME_COUNT_FAILURE:
       return {
         ...state,
-        dataGraph: [],
-        loadingGraph: false,
-        statusGraph: 501
+        dataCount: false,
+        loadingCount: false,
+        statusCount: 501
       };
     default:
       return state;

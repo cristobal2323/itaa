@@ -116,7 +116,7 @@ app.use("/api/getuser", listUserRoute.getUser);
 
 /* Home */
 app.use("/api/home", homeRoute.home);
-app.use("/api/homeGraph", homeRoute.homeGraph);
+app.use("/api/homeCount", homeRoute.homeCount);
 
 /* Dashboard */
 app.use("/api/dashboard", dashboardRoute.dashboard);

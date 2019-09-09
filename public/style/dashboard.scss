@@ -361,6 +361,12 @@ nav {
       &.th220 {
         width: 220px;
       }
+      &.th300 {
+        width: 300px;
+      }
+      &.th400 {
+        width: 400px;
+      }
     }
     td {
       font-family: $f-Regular;
@@ -369,6 +375,82 @@ nav {
       padding: 1em 0.7em;
       &.center {
         text-align: center;
+      }
+      .module--InfoTable {
+        align-items: center;
+        ul {
+          list-style-type: none;
+          padding: 0;
+          margin: 0;
+          li {
+            display: flex;
+            font-size: 12px;
+            + li {
+              margin-top: 4px;
+            }
+            strong {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              color: $header;
+              margin-right: 8px;
+            }
+          }
+        }
+      }
+      .module--basalTable {
+        display: flex;
+        align-items: center;
+        .module--basalTable__pie {
+          margin-right: 8px;
+        }
+        h3,
+        h4 {
+          margin: 0;
+          padding: 0;
+          text-align: left;
+        }
+        h3 {
+          font-size: 14px;
+        }
+        h4 {
+          margin-top: 8px;
+          font-size: 13px;
+        }
+        ul {
+          list-style-type: none;
+          padding: 0;
+          margin: 0;
+          margin-top: 8px;
+          li {
+            margin: 0;
+            font-size: 12px;
+            text-align: left;
+            &:before {
+              content: "";
+              width: 8px;
+              height: 8px;
+              display: inline-block;
+              background: #5398c7;
+              margin-right: 4px;
+            }
+            &.leve {
+              &:before {
+                background: #00c49f;
+              }
+            }
+            &.moderado {
+              &:before {
+                background: #ffbb28;
+              }
+            }
+            &.alto {
+              &:before {
+                background: #ff4242;
+              }
+            }
+          }
+        }
       }
       .icon-table {
         display: flex;
@@ -382,7 +464,7 @@ nav {
           }
         }
       }
-      ul {
+      .list--bubble {
         list-style-type: none;
         display: flex;
         padding: 0;
