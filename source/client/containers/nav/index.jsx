@@ -127,6 +127,45 @@ class Nav extends Component {
                     Pittsburgh
                   </Link>
                 </li>
+                <li>
+                  <Link
+                    to="/dashboard/dass21"
+                    className="active"
+                    onClick={this.handleSub}
+                    role="button"
+                    tabIndex={0}
+                    data-submenu="3"
+                    data-parent="i"
+                  >
+                    Dass 21
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/dashboard/besiak"
+                    className="active"
+                    onClick={this.handleSub}
+                    role="button"
+                    tabIndex={0}
+                    data-submenu="4"
+                    data-parent="i"
+                  >
+                    Besiak
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/dashboard/lakelouise"
+                    className="active"
+                    onClick={this.handleSub}
+                    role="button"
+                    tabIndex={0}
+                    data-submenu="5"
+                    data-parent="i"
+                  >
+                    Lake Louise
+                  </Link>
+                </li>
               </ul>
             </li>
             <li data-parent="c" data-menu="2">
@@ -359,6 +398,46 @@ class Nav extends Component {
                     data-parent="h"
                   >
                     Nuevo Polisomnografia
+                  </Link>
+                </li>
+              </ul>
+            </li>
+            <li data-parent="j" data-menu="6">
+              <a
+                id="j"
+                onClick={this.handleNav}
+                role="button"
+                tabIndex={0}
+                data-menu="8"
+              >
+                <i className="fas fa-laptop" />
+                Poligrafía
+              </a>
+              <ul>
+                <li>
+                  <Link
+                    to="/dashboard/list_poligrafia"
+                    className="active"
+                    onClick={this.handleSub}
+                    role="button"
+                    tabIndex={0}
+                    data-submenu="1"
+                    data-parent="j"
+                  >
+                    Listado Poligrafía
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/dashboard/add_poligrafia"
+                    className="active"
+                    onClick={this.handleSub}
+                    role="button"
+                    tabIndex={0}
+                    data-submenu="2"
+                    data-parent="j"
+                  >
+                    Nuevo Poliigrafía
                   </Link>
                 </li>
               </ul>

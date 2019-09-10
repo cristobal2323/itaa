@@ -9,13 +9,13 @@ const RADIAN = Math.PI / 180;
 const dataArr = (valores, clasification) => {
   const arr = [];
   switch (clasification) {
-    case "LEVE":
+    case "NORMAL":
       arr.push({ name: "Leve", value: valores.leve, color: "#00C49F" });
       break;
-    case "MODERADO":
+    case "LEVE":
       arr.push({ name: "Moderado", value: valores.moderado, color: "#FFBB28" });
       break;
-    case "ALTO":
+    case "MODERADO":
       arr.push({ name: "Alto", value: valores.alto, color: "#F1830F" });
       break;
     case "SEVERO":

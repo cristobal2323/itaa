@@ -145,6 +145,7 @@ nav {
   width: 300px;
   z-index: 2;
   background: $nav;
+  overflow: auto;
   .container-user {
     display: flex;
     width: 100%;
