@@ -34,6 +34,10 @@ class Home extends Component {
     await this.props.actions.fetchHomeCountApi({});
   }
 
+  componentWillUnmount() {
+    this.props.actions.resetHome();
+  }
+
   /* paginato */
   handlePaginator = async event => {
     const num = event.currentTarget.dataset.num;
@@ -80,7 +84,6 @@ class Home extends Component {
 
   render() {
     let container;
-    console.log(this.props.data);
     if (this.props.status === 401 || this.props.statusCount === 401) {
       container = (
         <section className="main">

@@ -16,7 +16,7 @@ const dataArr = (valores, clasification) => {
       arr.push({ name: "Moderado", value: valores.moderado, color: "#FFBB28" });
       break;
     case "ALTO":
-      arr.push({ name: "Alto", value: valores.alto, color: "#ff4242" });
+      arr.push({ name: "Alto", value: valores.alto, color: "#F1830F" });
       break;
     case "SEVERO":
       arr.push({ name: "Alto", value: valores.alto, color: "#ff4242" });
@@ -29,7 +29,6 @@ const dataArr = (valores, clasification) => {
 const SimplePieChart = props => {
   let data = [];
   data = dataArr(props.data, props.clasification);
-  console.log(props.data, data);
   return (
     <PieChart width={50} height={50}>
       <Pie

@@ -5,12 +5,19 @@ import {
   FETCH_HOME_FAILURE,
   FETCH_HOME_COUNT_INIT,
   FETCH_HOME_COUNT_SUCCESS,
-  FETCH_HOME_COUNT_FAILURE
+  FETCH_HOME_COUNT_FAILURE,
+  RESET_HOME
 } from "../../actions/home/types";
 
 export default function home(state = initialState, action) {
   switch (action.type) {
     /* Setting */
+    case RESET_HOME:
+      return {
+        ...state,
+        status: 0,
+        statusCount: 0
+      };
     case FETCH_HOME_INIT:
       return {
         ...state,
