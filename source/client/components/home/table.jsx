@@ -44,12 +44,6 @@ const Table = props => (
                     <h3>
                       Clasificación: {item.perfil_riesgo_basal.clasificacion}
                     </h3>
-                    <h4>Suma: {item.perfil_riesgo_basal.suma}</h4>
-                    {/*            <ul>
-                      <li className="leve">Leve</li>
-                      <li className="moderado">Moderado</li>
-                      <li className="alto">Alto</li>
-                    </ul> */}
                   </div>
                 </section>
               </td>
