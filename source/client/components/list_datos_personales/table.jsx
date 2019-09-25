@@ -19,7 +19,7 @@ const Table = props => (
       <tbody>
         {props.data.ejecucion.estado &&
           props.data.datos.lista.map((item, i) => (
-            <tr key={item.id}>
+            <tr key={i}>
               <td>{item.nombres}</td>
               <td>{item.apellido_paterno}</td>
               <td>{item.email}</td>

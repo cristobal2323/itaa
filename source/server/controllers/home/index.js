@@ -3,17 +3,22 @@ import Config from "../config/";
 
 async function get(req, res) {
   const obj = JSON.parse(req.params.obj);
+
   /* Dashborar Main  */
+  console.log(req.session);
+
   console.log(
     `Dashboard Persons ${Config.api}/dsper?reg_inicio=${
       obj.pag.start
-    }&reg_fin=${obj.pag.end}&ver_detalle=false`
+    }&reg_fin=${obj.pag.end}&ver_detalle=false}&comprador_id=${
+      req.session.comprador_id
+    }`
   );
   const response = await fetch(
     encodeURI(
       `${Config.api}/dsper?reg_inicio=${obj.pag.start}&reg_fin=${
         obj.pag.end
-      }&ver_detalle=false`
+      }&ver_detalle=false}&comprador_id=${req.session.comprador_id}`
     ),
     {
       method: "GET",

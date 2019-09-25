@@ -36,6 +36,7 @@ async function get(req, res) {
 
     const data = await response.json();
     data.datos.permits = permission(data.datos.permissions);
+    req.session.comprador_id = data.datos.comprador_id;
     const status = response.status;
     return res.status(status).send(data);
   } catch (e) {

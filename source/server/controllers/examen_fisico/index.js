@@ -5,11 +5,15 @@ async function get(req, res) {
   const obj = JSON.parse(req.params.obj);
   console.log(
     "List examen fisico",
-    `${Config.api}/liexfi?reg_inicio=${obj.pag.start}&reg_fin=${obj.pag.end}`
+    `${Config.api}/liexfi?reg_inicio=${obj.pag.start}&reg_fin=${
+      obj.pag.end
+    }&comprador_id=${req.session.comprador_id}`
   );
   const response = await fetch(
     encodeURI(
-      `${Config.api}/liexfi?reg_inicio=${obj.pag.start}&reg_fin=${obj.pag.end}`
+      `${Config.api}/liexfi?reg_inicio=${obj.pag.start}&reg_fin=${
+        obj.pag.end
+      }&comprador_id=${req.session.comprador_id}`
     ),
     {
       method: "GET",
@@ -49,14 +53,22 @@ async function getInfo(req, res) {
 
 async function getCount(req, res) {
   const obj = JSON.parse(req.params.obj);
-  console.log("List examen fisico count", `${Config.api}/pagliper`);
-  const response = await fetch(encodeURI(`${Config.api}/pagliper`), {
-    method: "GET",
-    headers: new Headers({
-      Authorization: `Bearer ${req.session.token}`,
-      accept: "application/json"
-    })
-  });
+  console.log(
+    "List examen fisico count",
+    `${Config.api}/pagliper?comprador_id=${req.session.comprador_id}`
+  );
+  const response = await fetch(
+    encodeURI(
+      `${Config.api}/pagliper?comprador_id=${req.session.comprador_id}`
+    ),
+    {
+      method: "GET",
+      headers: new Headers({
+        Authorization: `Bearer ${req.session.token}`,
+        accept: "application/json"
+      })
+    }
+  );
 
   const data = await response.json();
   const status = response.status;

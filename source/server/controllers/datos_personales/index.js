@@ -5,11 +5,15 @@ async function get(req, res) {
   const obj = JSON.parse(req.params.obj);
   console.log(
     "List datos personales",
-    `${Config.api}/liper?reg_inicio=${obj.pag.start}&reg_fin=${obj.pag.end}`
+    `${Config.api}/liper?reg_inicio=${obj.pag.start}&reg_fin=${
+      obj.pag.end
+    }&comprador_id=${req.session.comprador_id}`
   );
   const response = await fetch(
     encodeURI(
-      `${Config.api}/liper?reg_inicio=${obj.pag.start}&reg_fin=${obj.pag.end}`
+      `${Config.api}/liper?reg_inicio=${obj.pag.start}&reg_fin=${
+        obj.pag.end
+      }&comprador_id=${req.session.comprador_id}`
     ),
     {
       method: "GET",
@@ -56,14 +60,20 @@ async function getInfo(req, res) {
   const status1 = response1.status;
 
   /* Profesion Datos personales */
-  console.log("Profesion datos personales", `${Config.api}/liproof`);
-  const response2 = await fetch(encodeURI(`${Config.api}/liproof`), {
-    method: "GET",
-    headers: new Headers({
-      Authorization: `Bearer ${req.session.token}`,
-      accept: "application/json"
-    })
-  });
+  console.log(
+    "Profesion datos personales",
+    `${Config.api}/liproof?comprador_id=${req.session.comprador_id}`
+  );
+  const response2 = await fetch(
+    encodeURI(`${Config.api}/liproof?comprador_id=${req.session.comprador_id}`),
+    {
+      method: "GET",
+      headers: new Headers({
+        Authorization: `Bearer ${req.session.token}`,
+        accept: "application/json"
+      })
+    }
+  );
 
   const data2 = await response2.json();
   const status2 = response2.status;
@@ -131,14 +141,22 @@ async function getInfo(req, res) {
 
 async function getCount(req, res) {
   const obj = JSON.parse(req.params.obj);
-  console.log("List datos personales count", `${Config.api}/pagliper`);
-  const response = await fetch(encodeURI(`${Config.api}/pagliper`), {
-    method: "GET",
-    headers: new Headers({
-      Authorization: `Bearer ${req.session.token}`,
-      accept: "application/json"
-    })
-  });
+  console.log(
+    "List datos personales count",
+    `${Config.api}/pagliper?comprador_id=${req.session.comprador_id}`
+  );
+  const response = await fetch(
+    encodeURI(
+      `${Config.api}/pagliper?comprador_id=${req.session.comprador_id}`
+    ),
+    {
+      method: "GET",
+      headers: new Headers({
+        Authorization: `Bearer ${req.session.token}`,
+        accept: "application/json"
+      })
+    }
+  );
 
   const data = await response.json();
   const status = response.status;

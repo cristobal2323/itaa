@@ -84,6 +84,7 @@ class Home extends Component {
 
   render() {
     let container;
+    console.log(this.props.data);
     if (this.props.status === 401 || this.props.statusCount === 401) {
       container = (
         <section className="main">

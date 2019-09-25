@@ -5,11 +5,15 @@ async function get(req, res) {
   const obj = JSON.parse(req.params.obj);
   console.log(
     "List oximetria",
-    `${Config.api}/lioxi?reg_inicio=${obj.pag.start}&reg_fin=${obj.pag.end}`
+    `${Config.api}/lioxi?reg_inicio=${obj.pag.start}&reg_fin=${
+      obj.pag.end
+    }&comprador_id=${req.session.comprador_id}`
   );
   const response = await fetch(
     encodeURI(
-      `${Config.api}/lioxi?reg_inicio=${obj.pag.start}&reg_fin=${obj.pag.end}`
+      `${Config.api}/lioxi?reg_inicio=${obj.pag.start}&reg_fin=${
+        obj.pag.end
+      }&comprador_id=${req.session.comprador_id}`
     ),
     {
       method: "GET",
@@ -33,14 +37,22 @@ async function getInfo(req, res) {
 
 async function getCount(req, res) {
   const obj = JSON.parse(req.params.obj);
-  console.log("List oximetria count", `${Config.api}/paglioxi`);
-  const response = await fetch(encodeURI(`${Config.api}/paglioxi`), {
-    method: "GET",
-    headers: new Headers({
-      Authorization: `Bearer ${req.session.token}`,
-      accept: "application/json"
-    })
-  });
+  console.log(
+    "List oximetria count",
+    `${Config.api}/paglioxi?comprador_id=${req.session.comprador_id}`
+  );
+  const response = await fetch(
+    encodeURI(
+      `${Config.api}/paglioxi?comprador_id=${req.session.comprador_id}`
+    ),
+    {
+      method: "GET",
+      headers: new Headers({
+        Authorization: `Bearer ${req.session.token}`,
+        accept: "application/json"
+      })
+    }
+  );
 
   const data = await response.json();
   const status = response.status;
